@@ -9,10 +9,16 @@ class ModelARX
 public:
     ModelARX();
 
+    void addA(const double a);
+    //void removeA(double& a);
+    void clearA();
+
     void addB(const double b);
     //void removeB(double& b);
+    void clearB();
 
     void symulujKrok(const double sygn_wej);
+
     void wypiszY();
 
 private:
