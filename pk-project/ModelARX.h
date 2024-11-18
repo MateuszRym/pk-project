@@ -2,37 +2,25 @@
 #define MODELARX_H
 
 #include <queue>
+#include <vector>
 
 class ModelARX
 {
 public:
-    ModelARX(double wej, double wsp_a, double wsp_b, int opozn);
+    ModelARX();
 
-    // const double& getWejscie() const {return m_u;}
-    const double& getAktU() const {return m_u_buffer.front();}
-    const double& getA() const {return m_a;}
-    const double& getB() const {return m_b;}
-    const int& getK() const {return m_k;}
-
-    // void setWejscie(double u);
-    void setA(double a);
-    void setB(double b);
-    void setK(int k);
+    void addB(const double b);
+    //void removeB(double& b);
 
     void symulujKrok(const double sygn_wej);
+    void wypiszY();
 
 private:
-    std::queue<double> m_u_buffer;
-    std::queue<double> m_u_delay;
-    std::queue<double> m_y_buffer;
-    std::queue<double> m_y_delay;
-
-    // double m_u;
-    // double m_y;
-    //double z;
-    double m_a;
-    double m_b;
-    int m_k;
+    std::deque<double> m_u_buffer;
+    std::deque<double> m_u_delay;
+    std::deque<double> m_y_buffer;
+    std::vector<double> m_a;
+    std::vector<double> m_b;
 };
 
 #endif // MODELARX_H

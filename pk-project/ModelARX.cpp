@@ -1,37 +1,41 @@
 #include "ModelARX.h"
-#include <Qexception>
+#include <numeric>
+#include <iostream>
 
-ModelARX::ModelARX(double wej, double wsp_a, double wsp_b, int opozn)
-    : m_a{wsp_a}
-    , m_b{wsp_b}
-    , m_k{opozn}
-    // , m_u{wej}
-{}
-
-// void ModelARX::setWejscie(double u)
-// {
-//     m_u = u;
-// }
-
-void ModelARX::setA(double a)
+ModelARX::ModelARX()
+    : m_u_buffer{}
+    , m_u_delay{}
+    , m_y_buffer{}
+    , m_a{-0.4}
+    , m_b{0.6}
 {
-    m_a = a;
 }
 
-void ModelARX::setB(double b)
+void ModelARX::addB(const double b)
 {
-    m_b = b;
-}
-
-void ModelARX::setK(int k)
-{
-    if(k >= 1)
-        m_k = k;
-    else
-        throw std::domain_error("k musi byc rowne lub wieksze niz 1!");
+    m_b.push_back(b);
 }
 
 void ModelARX::symulujKrok(const double sygn_wej)
 {
-    double u = getB() * sygn_wej;
+    m_u_buffer.push_back(m_u_delay.front());
+    m_u_buffer.pop_front();
+    m_u_delay.push_back(sygn_wej);
+    m_u_delay.pop_front();
+    double splot_u_b = std::inner_product(m_u_buffer.begin(), m_u_buffer.end(), m_b.begin(), 0.0);
+    double splot_y_a = std::inner_product(m_y_buffer.begin(), m_y_buffer.end(), m_a.begin(), 0.0);
+    double y = splot_u_b + splot_y_a;
+    m_y_buffer.push_back(y);
+    m_y_buffer.pop_front();
+}
+
+void ModelARX::wypiszY()    //deque zamiast kopii ?
+{
+    std::deque<double> kopia_y = m_y_buffer;
+    while(!kopia_y.empty())
+    {
+        std::cout << kopia_y.front() << '\t';
+        kopia_y.pop_front();
+    }
+    std::cout << '\n';
 }
