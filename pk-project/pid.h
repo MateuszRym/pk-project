@@ -3,8 +3,11 @@
 
 class pid
 {
+    int k;
+    int tI;
+    int tD;
 public:
-    pid();
+    pid(int tempK, int tempTI, int tempTD);
 };
 
 #endif // PID_H

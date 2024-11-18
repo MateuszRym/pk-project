@@ -5,7 +5,7 @@
 
 #define DEBUG
 
-#include "RegulatorPID.h"
+#include "pid.h"
 
 #ifdef DEBUG
 
