@@ -3,21 +3,24 @@
 
 class pid
 {
-    int k;
-    int tI;
-    int tD;
-    float pamiecCalk;
-    float pamiecRozn;
+    double k;
+    double tI;
+    double tD;
+    double pamiecCalk;
+    double pamiecRozn;
 public:
-    pid(int tempK, int tempTI, int tempTD);
+    pid(double tempK, double tempTI, double tempTD);
     ~pid();
-    void ustawK(int tempK);
-    void ustawTI(int tempTI);
-    void ustawTD(int tempTD);
+    void ustawK(double tempK);
+    void ustawTI(double tempTI);
+    void ustawTD(double tempTD);
     void resetujPamiecCalk();
     void resetujPamiecRozn();
     void resetujPamiec();
-    float symulujKrokPID(float eI);
+    double czescProp(double eI);
+    double czescCalk(double eI);
+    double czescRozn(double eI);
+    double symulujKrokPID(double eI);
 };
 
 #endif // PID_H
