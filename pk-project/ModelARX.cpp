@@ -1,6 +1,7 @@
 #include "ModelARX.h"
 #include <numeric>
 #include <iostream>
+#include <algorithm>
 
 ModelARX::ModelARX()
     : m_u_buffer{}
@@ -14,6 +15,11 @@ ModelARX::ModelARX()
 void ModelARX::addB(const double b)
 {
     m_b.push_back(b);
+}
+
+void ModelARX::removeB(const double b)
+{
+    m_b.erase(std::remove(m_b.begin(), m_b.end(), b), m_b.end());
 }
 
 void ModelARX::symulujKrok(const double sygn_wej)

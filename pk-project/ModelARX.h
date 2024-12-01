@@ -10,7 +10,7 @@ public:
     ModelARX();
 
     void addB(const double b);
-    //void removeB(double& b);
+    void removeB(const double b);
 
     void symulujKrok(const double sygn_wej);
     void wypiszY();
