@@ -40,7 +40,7 @@ void test_RegulatorP_brakPobudzenia()
 	try
 	{
 		// Przygotowanie danych:
-		RegulatorPID instancjaTestowa(0.5);
+        pid instancjaTestowa(0.5);
 		constexpr size_t LICZ_ITER = 30;
 		std::vector<double> sygWe(LICZ_ITER);      // pobudzenie modelu (tu same 0)
 		std::vector<double> spodzSygWy(LICZ_ITER); // spodziewana sekwencja wy (tu same 0)
@@ -74,7 +74,7 @@ void test_RegulatorP_skokJednostkowy()
 	try
 	{
 		// Przygotowanie danych:
-		RegulatorPID instancjaTestowa(0.5);
+        pid instancjaTestowa(0.5);
 		constexpr size_t LICZ_ITER = 30;
 		std::vector<double> sygWe(LICZ_ITER);      // pobudzenie modelu 
 		std::vector<double> spodzSygWy(LICZ_ITER); // spodziewana sekwencja wy 
@@ -112,7 +112,7 @@ void test_RegulatorPI_skokJednostkowy_1()
 	try
 	{
 		// Przygotowanie danych:
-		RegulatorPID instancjaTestowa(0.5,1.0);
+        pid instancjaTestowa(0.5,1.0);
 		constexpr size_t LICZ_ITER = 30;
 		std::vector<double> sygWe(LICZ_ITER);      // pobudzenie modelu 
 		std::vector<double> spodzSygWy(LICZ_ITER); // spodziewana sekwencja wy 
