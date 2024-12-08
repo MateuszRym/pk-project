@@ -21,6 +21,7 @@ SOURCES += \
     sygskok.cpp \
     symulacja.cpp \
     zegar.cpp
+    wejscie.cpp
 
 HEADERS += \
     ModelARX.h \
@@ -32,6 +33,7 @@ HEADERS += \
     sygskok.h \
     symulacja.h \
     zegar.h
+    wejscie.h
 
 FORMS += \
     mainwindow.ui
