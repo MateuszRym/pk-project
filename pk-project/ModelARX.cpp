@@ -1,24 +1,34 @@
 #include "ModelARX.h"
 #include <numeric>
 #include <iostream>
+#include <algorithm>
+#include <QException>
 
 ModelARX::ModelARX()
     : m_u_buffer{}
     , m_u_delay{}
     , m_y_buffer{}
-    , m_a{-0.4, -0.2}
-    , m_b{0.6, 0.2}
+    , m_a{}
+    , m_b{}
 {
 }
 
 void ModelARX::addA(const double a)
 {
-    m_b.push_back(a);
+    m_a.push_back(a);
+}
+
+void ModelARX::removeA(int index)
+{
+    if (index < m_a.size())
+        m_a.erase(m_a.begin() + index);
+    else
+        throw std::out_of_range("Invalid index!");
 }
 
 void ModelARX::clearA()
 {
-    m_b.clear();
+    m_a.clear();
 }
 
 void ModelARX::addB(const double b)
@@ -26,12 +36,20 @@ void ModelARX::addB(const double b)
     m_b.push_back(b);
 }
 
+void ModelARX::removeB(int index)
+{
+    if (index < m_b.size())
+        m_b.erase(m_b.begin() + index);
+    else
+        throw std::out_of_range("Invalid index!");
+}
+
 void ModelARX::clearB()
 {
     m_b.clear();
 }
 
-void ModelARX::symulujKrok(const double sygn_wej)
+double ModelARX::symulujKrok(const double sygn_wej)
 {
     if (!m_u_delay.empty())
     {
@@ -49,9 +67,11 @@ void ModelARX::symulujKrok(const double sygn_wej)
 
     m_y_buffer.push_front(y);
     if(m_y_buffer.size() > m_a.size()) m_y_buffer.pop_back();
+
+    return y;
 }
 
-void ModelARX::wypiszY()    //deque zamiast kopii ?
+void ModelARX::wypiszY()    // test
 {
     std::deque<double> kopia_y = m_y_buffer;
     while(!kopia_y.empty())

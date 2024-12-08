@@ -14,12 +14,24 @@ SOURCES += \
     Testy_PID.cpp \
     main.cpp \
     mainwindow.cpp \
-    pid.cpp
+    pid.cpp \
+    syggen.cpp \
+    sygkwad.cpp \
+    sygsin.cpp \
+    sygskok.cpp \
+    symulacja.cpp \
+    zegar.cpp
 
 HEADERS += \
     ModelARX.h \
     mainwindow.h \
-    pid.h
+    pid.h \
+    syggen.h \
+    sygkwad.h \
+    sygsin.h \
+    sygskok.h \
+    symulacja.h \
+    zegar.h
 
 FORMS += \
     mainwindow.ui
