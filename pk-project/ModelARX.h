@@ -9,11 +9,17 @@ class ModelARX
 public:
     ModelARX();
 
-    void addB(const double b);
-    //void removeB(double& b);
+    void addA(const double a);
+    void removeA(int index);
+    void clearA();
 
-    void symulujKrok(const double sygn_wej);
-    void wypiszY();
+    void addB(const double b);
+    void removeB(int index);
+    void clearB();
+
+    double symulujKrok(const double sygn_wej);
+
+    void wypiszY();     // test
 
 private:
     std::deque<double> m_u_buffer;
