@@ -14,12 +14,14 @@ SOURCES += \
     arx.cpp \
     main.cpp \
     mainwindow.cpp \
-    pid.cpp
+    pid.cpp \
+    wejscie.cpp
 
 HEADERS += \
     arx.h \
     mainwindow.h \
-    pid.h
+    pid.h \
+    wejscie.h
 
 FORMS += \
     mainwindow.ui
