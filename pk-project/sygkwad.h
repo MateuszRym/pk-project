@@ -12,8 +12,8 @@ public:
     double sygnal(const Zegar clk);
     void setWypeln(double wyp);
     void setOkres(int okr);
-    const double& getWypeln() const { return m_wypelnienie; }
-    const int& getOkres() const { return m_okres; }
+    double getWypeln() const { return m_wypelnienie; }
+    int getOkres() const { return m_okres; }
 };
 
 #endif // SYGKWAD_H

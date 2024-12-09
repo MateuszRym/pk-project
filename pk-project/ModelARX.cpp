@@ -10,7 +10,19 @@ ModelARX::ModelARX()
     , m_y_buffer{}
     , m_a{}
     , m_b{}
+    , m_k_opozn{ 1 }
+    , m_zakl{ 0.0 }
+{}
+
+ModelARX::ModelARX(std::vector<double> wsp_a, std::vector<double> wsp_b, int k, double z)
+    : m_u_buffer{}
+    , m_u_delay{}
+    , m_y_buffer{}
+    , m_a{ wsp_a }
+    , m_b{ wsp_b }
+    , m_zakl{ z }
 {
+    setOpozn(k);
 }
 
 void ModelARX::addA(const double a)
@@ -49,9 +61,17 @@ void ModelARX::clearB()
     m_b.clear();
 }
 
-double ModelARX::symulujKrok(const double sygn_wej)
+void ModelARX::setOpozn(int k)
 {
-    if (!m_u_delay.empty())
+    if (k >= 1)
+        m_k_opozn = k;
+    else
+        throw std::out_of_range("K musi wynosić min. 1!");
+}
+
+double ModelARX::symuluj(const Zegar clk, const double sygn_wej)
+{
+    if (getOpozn() <= clk.getKrok())
     {
         m_u_buffer.push_front(m_u_delay.front());
         m_u_delay.pop_front();
@@ -71,7 +91,7 @@ double ModelARX::symulujKrok(const double sygn_wej)
     return y;
 }
 
-void ModelARX::wypiszY()    // test
+void ModelARX::wypiszY()    // sprawdzenie
 {
     std::deque<double> kopia_y = m_y_buffer;
     while(!kopia_y.empty())

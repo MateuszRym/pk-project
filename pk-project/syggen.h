@@ -10,7 +10,7 @@ public:
     SygGen(double amp);
     // virtual double sygnal(const Zegar clk);
     double sygnal(const Zegar clk);
-    const double& getAmp() const { return m_amp; }
+    double getAmp() const { return m_amp; }
 };
 
 #endif // SYGGEN_H

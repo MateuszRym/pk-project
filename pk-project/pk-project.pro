@@ -20,11 +20,13 @@ SOURCES += \
     sygsin.cpp \
     sygskok.cpp \
     symulacja.cpp \
+    testARX.cpp \
     zegar.cpp
     wejscie.cpp
 
 HEADERS += \
     ModelARX.h \
+    compile.h \
     mainwindow.h \
     pid.h \
     syggen.h \

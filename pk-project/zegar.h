@@ -7,7 +7,7 @@ class Zegar
 public:
     Zegar();
     void krokDalej();
-    const int& getKrok() const { return m_krok; }
+    int getKrok() const { return m_krok; }
 };
 
 #endif // ZEGAR_H

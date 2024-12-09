@@ -10,7 +10,7 @@ public:
     SygSin(double amp, int okr);
     double sygnal(const Zegar clk);
     void setOkres(int okr);
-    const int& getOkres() const { return m_okres; }
+    int getOkres() const { return m_okres; }
 };
 
 #endif // SYGSIN_H
