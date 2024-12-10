@@ -13,26 +13,22 @@ class ModelARX
     std::vector<double> m_a;
     std::vector<double> m_b;
     int m_k_opozn;
-    double m_zakl;
+    bool m_zakl_rng;
 
 public:
     ModelARX();
-    ModelARX(std::vector<double> wsp_a, std::vector<double> wsp_b, int k = 1, double z = 0.0);
-
+    ModelARX(std::vector<double> wsp_a, std::vector<double> wsp_b, int k = 1, bool z = true);
     void addA(const double a);
     void removeA(int index);
     void clearA();
-
     void addB(const double b);
     void removeB(int index);
     void clearB();
-
     void setOpozn(int k);
     int getOpozn() const { return m_k_opozn; }
+    bool getCzyZakl() const { return m_zakl_rng; }
 
     double symuluj(const Zegar clk, const double sygn_wej);
-
-    void wypiszY();     // sprawdzenie
 };
 
 #endif // MODELARX_H
