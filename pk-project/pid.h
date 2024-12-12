@@ -11,6 +11,9 @@ class PID
     double D;
     double pamiecCalk;
     double pamiecRozn;
+    double getProp();
+    double getCalk();
+    double getRozn();
 public:
     PID(double tempK, double tempTI, double tempTD);
     ~PID();
@@ -23,9 +26,6 @@ public:
     double czescProp(double eI);
     double czescCalk(double eI);
     double czescRozn(double eI);
-    double getProp();
-    double getCalk();
-    double getRozn();
     double symulujKrokPID(double eI);
 };
 
