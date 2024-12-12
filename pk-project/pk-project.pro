@@ -15,6 +15,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     pid.cpp \
+    sprzwr.cpp \
     syggen.cpp \
     sygkwad.cpp \
     sygsin.cpp \
@@ -29,6 +30,7 @@ HEADERS += \
     compile.h \
     mainwindow.h \
     pid.h \
+    sprzwr.h \
     syggen.h \
     sygkwad.h \
     sygsin.h \

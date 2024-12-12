@@ -1,48 +1,48 @@
-#include "pid.h"
+#include "PID.h"
 
-pid::pid(double tempK, double tempTI, double tempTD) : k{tempK}, tI{tempTI}, tD{tempTD}{
-
-}
-
-pid::~pid(){
+PID::PID(double tempK, double tempTI, double tempTD) : k{tempK}, tI{tempTI}, tD{tempTD}{
 
 }
 
-void pid::ustawK(double tempK){
+PID::~PID(){
+
+}
+
+void PID::ustawK(double tempK){
     k = tempK;
 }
 
-void pid::ustawTI(double tempTI){
+void PID::ustawTI(double tempTI){
     tI = tempTI;
 }
 
-void pid::ustawTD(double tempTD){
+void PID::ustawTD(double tempTD){
     tD = tempTD;
 }
 
-void pid::resetujPamiecCalk(){
+void PID::resetujPamiecCalk(){
     pamiecCalk = 0;
 }
 
-void pid::resetujPamiecRozn(){
+void PID::resetujPamiecRozn(){
     pamiecRozn = 0;
 }
 
-void pid::resetujPamiec(){
+void PID::resetujPamiec(){
     resetujPamiecCalk();
     resetujPamiecRozn();
 }
 
-double pid::czescProp(double eI){
+double PID::czescProp(double eI){
     return k * eI;
 }
 
-double pid::czescCalk(double eI){
+double PID::czescCalk(double eI){
     pamiecCalk += eI;
     return pamiecCalk / tI;
 }
 
-double pid::czescRozn(double eI){
+double PID::czescRozn(double eI){
     if (pamiecRozn == 0.0){
         pamiecRozn += eI;
         return 0.0;
@@ -53,19 +53,19 @@ double pid::czescRozn(double eI){
     }
 }
 
-double pid::getProp(){
+double PID::getProp(){
     return P;
 }
 
-double pid::getCalk(){
+double PID::getCalk(){
     return I;
 }
 
-double pid::getRozn(){
+double PID::getRozn(){
     return D;
 }
 
-double pid::symulujKrokPID(double eI){
+double PID::symulujKrokPID(double eI){
     P = czescProp(eI);
     I = czescCalk(eI);
     D = czescRozn(eI);

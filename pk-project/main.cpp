@@ -1,9 +1,9 @@
 #include "mainwindow.h"
-#include "ModelARX.h"
-#include "sygsin.h"
-#include "zegar.h"
+// #include "ModelARX.h"
+// #include "sygsin.h"
+// #include "zegar.h"
 #include <QApplication>
-#include <iostream>
+//#include <iostream>
 
 #ifdef MAIN
 
