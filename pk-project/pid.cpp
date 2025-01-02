@@ -53,21 +53,10 @@ double PID::czescRozn(double eI){
     }
 }
 
-double PID::getProp(){
-    return P;
-}
-
-double PID::getCalk(){
-    return I;
-}
-
-double PID::getRozn(){
-    return D;
-}
-
 double PID::symulujKrokPID(double eI){
-    P = czescProp(eI);
-    I = czescCalk(eI);
-    D = czescRozn(eI);
-    return P + I + D;
+    double p_, i_, d_;
+    p_ = czescProp(eI);
+    i_ = czescCalk(eI);
+    d_ = czescRozn(eI);
+    return p_ + i_ + d_;
 }

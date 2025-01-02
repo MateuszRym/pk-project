@@ -6,14 +6,8 @@ class PID
     double k;
     double tI;
     double tD;
-    double P;
-    double I;
-    double D;
     double pamiecCalk;
     double pamiecRozn;
-    double getProp();
-    double getCalk();
-    double getRozn();
 public:
     PID(double tempK, double tempTI, double tempTD);
     ~PID();
