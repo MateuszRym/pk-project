@@ -1,9 +1,10 @@
+#include <QApplication>
+//#include <iostream>
+
+#include "compile.h"
 #include "mainwindow.h"
 // #include "ModelARX.h"
 // #include "sygsin.h"
-// #include "zegar.h"
-#include <QApplication>
-//#include <iostream>
 
 #ifdef MAIN
 

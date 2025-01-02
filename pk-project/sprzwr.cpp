@@ -8,9 +8,9 @@ SprZwr::SprZwr(double y)
     : m_poprz_y{ y }
 {}
 
-double SprZwr::liczUchyb(const Zegar clk, SygGen wejscie)
+double SprZwr::liczUchyb(SygGen wejscie)
 {
-    return (wejscie.sygnal(clk) - getPoprzY());
+    return (wejscie.sygnal() - getPoprzY());
 }
 
 void SprZwr::setPoprzY(double y)

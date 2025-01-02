@@ -8,9 +8,9 @@ SygKwad::SygKwad(double amp, double wyp, int okr)
     , m_okres{ okr }
 {}
 
-double SygKwad::sygnal(const Zegar clk)
+double SygKwad::sygnal()
 {
-    if ((clk.getKrok() % getOkres()) < (getWypeln() * getOkres()))
+    if ((getKrok() % getOkres()) < (getWypeln() * getOkres()))
         return getAmp();
     else
         return 0.0;

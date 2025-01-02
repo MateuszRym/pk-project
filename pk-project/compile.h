@@ -3,4 +3,4 @@
 
 #endif // COMPILE_H
 
-#define DEBUG_ARX   // DEBUG_ARX / DEBUG_PID / MAIN
+#define MAIN   // DEBUG_ARX / DEBUG_PID / MAIN

@@ -21,8 +21,7 @@ SOURCES += \
     sygsin.cpp \
     sygskok.cpp \
     symulacja.cpp \
-    testARX.cpp \
-    zegar.cpp
+    testARX.cpp
     wejscie.cpp
 
 HEADERS += \
@@ -35,8 +34,7 @@ HEADERS += \
     sygkwad.h \
     sygsin.h \
     sygskok.h \
-    symulacja.h \
-    zegar.h
+    symulacja.h
     wejscie.h
 
 FORMS += \

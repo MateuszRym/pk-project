@@ -1,7 +1,6 @@
 #ifndef MODELARX_H
 #define MODELARX_H
 
-#include "zegar.h"
 #include <queue>
 #include <vector>
 
@@ -15,9 +14,11 @@ class ModelARX
     int m_k_opozn;
     bool m_zakl_rng;
 
+    void decrK() { --m_k_opozn; }
+
 public:
     ModelARX();
-    ModelARX(std::vector<double> wsp_a, std::vector<double> wsp_b, int k = 1, bool z = true);
+    ModelARX(std::vector<double> wsp_a, std::vector<double> wsp_b, int k = 1, bool z = false);
     void addA(const double a);
     void removeA(int index);
     void clearA();
@@ -28,7 +29,7 @@ public:
     int getOpozn() const { return m_k_opozn; }
     bool getCzyZakl() const { return m_zakl_rng; }
 
-    double symuluj(const Zegar clk, const double sygn_wej);
+    double symuluj(const double sygn_wej);
 };
 
 #endif // MODELARX_H

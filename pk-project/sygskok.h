@@ -5,12 +5,12 @@
 
 class SygSkok : public SygGen
 {
-    int m_zegar_akt;
+    int m_krok_aktyw;
 public:
     SygSkok(double amp, int akt_clk);
-    double sygnal(const Zegar clk);
+    double sygnal() override;
     void setZegarAkt(int z_akt);
-    int getZegarAkt() const { return m_zegar_akt; }
+    int getZegarAkt() const { return m_krok_aktyw; }
 };
 
 #endif // SYGSKOK_H

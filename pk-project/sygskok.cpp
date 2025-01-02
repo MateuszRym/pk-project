@@ -7,9 +7,9 @@ SygSkok::SygSkok(double amp, int akt_clk)
     , m_zegar_akt{ akt_clk }
 {}
 
-double SygSkok::sygnal(const Zegar clk)
+double SygSkok::sygnal()
 {
-    if (clk.getKrok() >= m_zegar_akt)
+    if (getKrok() >= m_zegar_akt)
         return getAmp();
     else
         return 0.0;

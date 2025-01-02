@@ -1,16 +1,16 @@
 #ifndef SYGGEN_H
 #define SYGGEN_H
 
-#include "zegar.h"
-
 class SygGen
 {
     double m_amp;
+    int m_krok;
 public:
-    SygGen(double amp);
-    // virtual double sygnal(const Zegar clk);
-    double sygnal(const Zegar clk);
+    SygGen(double amp = 1.0);
+    virtual double sygnal();
     double getAmp() const { return m_amp; }
+    int getKrok() const { return m_krok; }
+    void krokDalej() { ++m_krok; }
 };
 
 #endif // SYGGEN_H

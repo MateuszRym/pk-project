@@ -8,7 +8,7 @@ class SygSin : public SygGen
     int m_okres;
 public:
     SygSin(double amp, int okr);
-    double sygnal(const Zegar clk);
+    double sygnal() override;
     void setOkres(int okr);
     int getOkres() const { return m_okres; }
 };

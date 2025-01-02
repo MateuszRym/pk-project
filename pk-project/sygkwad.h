@@ -9,7 +9,7 @@ class SygKwad : public SygGen
     int m_okres;
 public:
     SygKwad(double amp, double wyp, int okr);
-    double sygnal(const Zegar clk);
+    double sygnal() override;
     void setWypeln(double wyp);
     void setOkres(int okr);
     double getWypeln() const { return m_wypelnienie; }

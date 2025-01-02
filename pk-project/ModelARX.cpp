@@ -68,7 +68,7 @@ void ModelARX::setOpozn(int k)
         throw std::out_of_range("K musi wynosić min. 1!");
 }
 
-double ModelARX::symuluj(const Zegar clk, const double sygn_wej)
+double ModelARX::symuluj(const double sygn_wej)
 {
     std::random_device s; std::mt19937 rng_zakl;
     std::normal_distribution<double> rozklad(0, 0.1);
@@ -81,12 +81,13 @@ double ModelARX::symuluj(const Zegar clk, const double sygn_wej)
     else
         z = 0.0;
 
-
-    if (getOpozn() <= clk.getKrok())
+    if (getOpozn() == 0)
     {
         m_u_buffer.push_front(m_u_delay.front());
         m_u_delay.pop_front();
     }
+    else
+        decrK();
 
     if (m_u_buffer.size() > m_b.size()) m_u_buffer.pop_back();
 
