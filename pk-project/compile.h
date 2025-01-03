@@ -1,6 +1,6 @@
 #ifndef COMPILE_H
 #define COMPILE_H
 
-#endif // COMPILE_H
+#define TESTCMD   // DEBUG_ARX / DEBUG_PID / TESTCMD / MAIN
 
-#define MAIN   // DEBUG_ARX / DEBUG_PID / MAIN
+#endif // COMPILE_H

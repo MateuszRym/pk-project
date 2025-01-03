@@ -9,6 +9,7 @@ class PID
     double pamiecCalk;
     double pamiecRozn;
 public:
+    PID();
     PID(double tempK, double tempTI, double tempTD);
     ~PID();
     void ustawK(double tempK);

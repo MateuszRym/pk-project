@@ -8,13 +8,17 @@
 
 class Symulacja
 {
-    const SygGen m_GenWartZad;
-    const ModelARX m_ARX;
-    const PID m_PID;
-    const SprZwr m_Uchyb;
+    SygGen m_GenWartZad;
+    ModelARX m_ARX;
+    PID m_PID;
+    SprZwr m_Uchyb;
 public:
     Symulacja();
 
+    SygGen& GenSygn() { return m_GenWartZad; }
+    ModelARX& ARX() { return m_ARX; }
+    PID& PID() { return m_PID; }
+    SprZwr& Uchyb() { return m_Uchyb; }
 };
 
 #endif // SYMULACJA_H

@@ -21,7 +21,8 @@ SOURCES += \
     sygsin.cpp \
     sygskok.cpp \
     symulacja.cpp \
-    testARX.cpp
+    testARX.cpp \
+    testcmd.cpp
     wejscie.cpp
 
 HEADERS += \
