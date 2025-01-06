@@ -1,54 +1,54 @@
 #include "PID.h"
 
-PID::PID()
+ModelPID::ModelPID()
     : k{}
     , tI{}
     , tD{}
 {}
 
-PID::PID(double tempK, double tempTI, double tempTD) : k{tempK}, tI{tempTI}, tD{tempTD}{
+ModelPID::ModelPID(double tempK, double tempTI, double tempTD) : k{tempK}, tI{tempTI}, tD{tempTD}{
 
 }
 
-PID::~PID(){
+ModelPID::~ModelPID(){
 
 }
 
-void PID::ustawK(double tempK){
+void ModelPID::ustawK(double tempK){
     k = tempK;
 }
 
-void PID::ustawTI(double tempTI){
+void ModelPID::ustawTI(double tempTI){
     tI = tempTI;
 }
 
-void PID::ustawTD(double tempTD){
+void ModelPID::ustawTD(double tempTD){
     tD = tempTD;
 }
 
-void PID::resetujPamiecCalk(){
+void ModelPID::resetujPamiecCalk(){
     pamiecCalk = 0;
 }
 
-void PID::resetujPamiecRozn(){
+void ModelPID::resetujPamiecRozn(){
     pamiecRozn = 0;
 }
 
-void PID::resetujPamiec(){
+void ModelPID::resetujPamiec(){
     resetujPamiecCalk();
     resetujPamiecRozn();
 }
 
-double PID::czescProp(double eI){
+double ModelPID::czescProp(double eI){
     return k * eI;
 }
 
-double PID::czescCalk(double eI){
+double ModelPID::czescCalk(double eI){
     pamiecCalk += eI;
     return pamiecCalk / tI;
 }
 
-double PID::czescRozn(double eI){
+double ModelPID::czescRozn(double eI){
     if (pamiecRozn == 0.0){
         pamiecRozn += eI;
         return 0.0;
@@ -59,7 +59,7 @@ double PID::czescRozn(double eI){
     }
 }
 
-double PID::symulujKrokPID(double eI){
+double ModelPID::symulujKrokPID(double eI){
     double p_, i_, d_;
     p_ = czescProp(eI);
     i_ = czescCalk(eI);

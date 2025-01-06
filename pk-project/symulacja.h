@@ -10,14 +10,15 @@ class Symulacja
 {
     SygGen m_GenWartZad;
     ModelARX m_ARX;
-    PID m_PID;
+    ModelPID m_PID;
     SprZwr m_Uchyb;
 public:
     Symulacja();
+    Symulacja(const SygGen& baseGen, const ModelARX& baseARX, const ModelPID& basePID, const SprZwr& baseUchyb);
 
     SygGen& GenSygn() { return m_GenWartZad; }
     ModelARX& ARX() { return m_ARX; }
-    PID& PID() { return m_PID; }
+    ModelPID& PID() { return m_PID; }
     SprZwr& Uchyb() { return m_Uchyb; }
 };
 

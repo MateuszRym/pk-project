@@ -1,7 +1,7 @@
-#ifndef PID_H
-#define PID_H
+#ifndef ModelPID_H
+#define ModelPID_H
 
-class PID
+class ModelPID
 {
     double k;
     double tI;
@@ -9,9 +9,9 @@ class PID
     double pamiecCalk;
     double pamiecRozn;
 public:
-    PID();
-    PID(double tempK, double tempTI, double tempTD);
-    ~PID();
+    ModelPID();
+    ModelPID(double tempK, double tempTI, double tempTD);
+    ~ModelPID();
     void ustawK(double tempK);
     void ustawTI(double tempTI);
     void ustawTD(double tempTD);
@@ -24,4 +24,4 @@ public:
     double symulujKrokPID(double eI);
 };
 
-#endif // PID_H
+#endif // ModelPID_H

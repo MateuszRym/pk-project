@@ -2,14 +2,14 @@
 #include <QException>
 
 
-SygSkok::SygSkok(double amp, int akt_clk)
+SygSkok::SygSkok(double amp, int clk_aktyw)
     : SygGen{ amp }
-    , m_zegar_akt{ akt_clk }
+    , m_krok_aktyw{ clk_aktyw }
 {}
 
 double SygSkok::sygnal()
 {
-    if (getKrok() >= m_zegar_akt)
+    if (getKrok() >= m_krok_aktyw)
         return getAmp();
     else
         return 0.0;
@@ -18,7 +18,7 @@ double SygSkok::sygnal()
 void SygSkok::setZegarAkt(int z_akt)
 {
     if (z_akt >= 0)
-        m_zegar_akt = z_akt;
+        m_krok_aktyw = z_akt;
     else
         throw std::out_of_range("Ujemny krok aktywacji!");
 }

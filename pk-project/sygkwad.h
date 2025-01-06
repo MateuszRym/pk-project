@@ -5,7 +5,7 @@
 
 class SygKwad : public SygGen
 {
-    double m_wypelnienie;   // wsp. podawania sygnalu w skali jednego okresu
+    double m_wypelnienie;   // stosunek czasu podawania sygnału do wielkości okresu
     int m_okres;
 public:
     SygKwad(double amp, double wyp, int okr);
