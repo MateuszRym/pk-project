@@ -8,7 +8,7 @@ SprZwr::SprZwr(double y)
     : m_poprz_y{ y }
 {}
 
-double SprZwr::liczUchyb(SygGen wejscie)
+double SprZwr::liczUchyb(SygGen& wejscie)
 {
     return (wejscie.sygnal() - getPoprzY());
 }

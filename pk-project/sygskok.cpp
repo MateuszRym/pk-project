@@ -9,10 +9,15 @@ SygSkok::SygSkok(double amp, int clk_aktyw)
 
 double SygSkok::sygnal()
 {
-    if (getKrok() >= m_krok_aktyw)
+    if (getKrok() >= m_krok_aktyw) {
+        setSygn(getAmp());
         return getAmp();
-    else
+    }
+    else {
+        krokDalej();
+        setSygn(0.0);
         return 0.0;
+    }
 }
 
 void SygSkok::setZegarAkt(int z_akt)

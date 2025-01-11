@@ -10,7 +10,7 @@ class SprZwr
 public:
     SprZwr();
     SprZwr(double y);
-    double liczUchyb(const SygGen wejscie);
+    double liczUchyb(SygGen& wejscie);
     void setPoprzY(double y);
     double getPoprzY() const { return m_poprz_y; }
     void reset();

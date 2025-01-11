@@ -9,7 +9,10 @@ SygSin::SygSin(double amp, int okr)
 
 double SygSin::sygnal()
 {
-    return (getAmp() * qSin(2 * M_PI * (getKrok() % getOkres())/getOkres() - (M_PI/2)) + 1.0) / 2.0;
+    double wyjscie = (getAmp() * qSin(2 * M_PI * (getKrok() % getOkres())/getOkres() - (M_PI/2)) + 1.0) / 2.0;
+    setSygn(wyjscie);
+    krokDalej();
+    return wyjscie;
 }
 
 void SygSin::setOkres(int okr)

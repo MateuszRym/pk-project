@@ -10,10 +10,16 @@ SygKwad::SygKwad(double amp, double wyp, int okr)
 
 double SygKwad::sygnal()
 {
-    if ((getKrok() % getOkres()) < (getWypeln() * getOkres()))
+    if ((getKrok() % getOkres()) < (getWypeln() * getOkres())) {
+        setSygn(getAmp());
+        krokDalej();
         return getAmp();
-    else
+    }
+    else {
+        setSygn(0.0);
+        krokDalej();
         return 0.0;
+    }
 }
 
 void SygKwad::setWypeln(double wyp)
