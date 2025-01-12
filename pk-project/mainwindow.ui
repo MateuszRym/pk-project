@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>966</width>
+    <height>682</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,7 +19,7 @@
   <property name="minimumSize">
    <size>
     <width>800</width>
-    <height>600</height>
+    <height>680</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -28,7 +28,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,6">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout" stretch="3,6">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="3,0">
       <property name="spacing">
        <number>5</number>
       </property>
@@ -152,7 +152,7 @@
       <item>
        <widget class="QToolBox" name="toolBox">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <sizepolicy hsizetype="Fixed" vsizetype="MinimumExpanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -171,8 +171,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>249</width>
-           <height>208</height>
+           <width>248</width>
+           <height>290</height>
           </rect>
          </property>
          <attribute name="label">
@@ -184,41 +184,28 @@
             <x>5</x>
             <y>-1</y>
             <width>241</width>
-            <height>211</height>
+            <height>291</height>
            </rect>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_11" stretch="1,15">
+          <layout class="QHBoxLayout" name="horizontalLayout_11" stretch="0">
+           <property name="sizeConstraint">
+            <enum>QLayout::SizeConstraint::SetMinimumSize</enum>
+           </property>
            <item>
-            <layout class="QVBoxLayout" name="verticalLayout_2">
-             <item>
-              <widget class="QRadioButton" name="radioButton_5">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QRadioButton" name="radioButton_6">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QRadioButton" name="radioButton_4">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QVBoxLayout" name="verticalLayout_8">
+            <layout class="QVBoxLayout" name="verticalLayout_2" stretch="3,4,3">
              <item>
               <widget class="QGroupBox" name="groupBox_3">
                <property name="title">
                 <string>Sygnał jednostkowy</string>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
                </property>
                <widget class="QWidget" name="verticalLayoutWidget">
                 <property name="geometry">
@@ -238,12 +225,19 @@
                    <item>
                     <widget class="QLabel" name="label_6">
                      <property name="text">
-                      <string>TextLabel</string>
+                      <string>Chwila aktywacji</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QSpinBox" name="spinBox_4"/>
+                    <widget class="QSpinBox" name="spinBox_4">
+                     <property name="minimum">
+                      <number>-100</number>
+                     </property>
+                     <property name="maximum">
+                      <number>100</number>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </item>
@@ -252,12 +246,22 @@
                    <item>
                     <widget class="QLabel" name="label_7">
                      <property name="text">
-                      <string>TextLabel</string>
+                      <string>Amplituda</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+                    <widget class="QDoubleSpinBox" name="doubleSpinBox">
+                     <property name="decimals">
+                      <number>2</number>
+                     </property>
+                     <property name="minimum">
+                      <double>-100.000000000000000</double>
+                     </property>
+                     <property name="maximum">
+                      <double>100.000000000000000</double>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </item>
@@ -270,13 +274,19 @@
                <property name="title">
                 <string>Sygnał prostokątny</string>
                </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
                <widget class="QWidget" name="verticalLayoutWidget_3">
                 <property name="geometry">
                  <rect>
                   <x>0</x>
                   <y>20</y>
                   <width>231</width>
-                  <height>58</height>
+                  <height>87</height>
                  </rect>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -284,16 +294,44 @@
                   <number>2</number>
                  </property>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_7">
+                  <layout class="QHBoxLayout" name="horizontalLayout_17">
                    <item>
-                    <widget class="QLabel" name="label_8">
+                    <widget class="QLabel" name="label_19">
                      <property name="text">
-                      <string>TextLabel</string>
+                      <string>Okres</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
+                    <widget class="QDoubleSpinBox" name="doubleSpinBox_11">
+                     <property name="minimum">
+                      <double>-100.000000000000000</double>
+                     </property>
+                     <property name="maximum">
+                      <double>100.000000000000000</double>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_7">
+                   <item>
+                    <widget class="QLabel" name="label_8">
+                     <property name="text">
+                      <string>Wypełnienie</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+                     <property name="minimum">
+                      <double>-100.000000000000000</double>
+                     </property>
+                     <property name="maximum">
+                      <double>100.000000000000000</double>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </item>
@@ -302,12 +340,19 @@
                    <item>
                     <widget class="QLabel" name="label_9">
                      <property name="text">
-                      <string>TextLabel</string>
+                      <string>Amplituda</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QDoubleSpinBox" name="doubleSpinBox_5"/>
+                    <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
+                     <property name="minimum">
+                      <double>-100.000000000000000</double>
+                     </property>
+                     <property name="maximum">
+                      <double>100.000000000000000</double>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </item>
@@ -319,6 +364,12 @@
               <widget class="QGroupBox" name="groupBox_4">
                <property name="title">
                 <string>Sygnał sinusoidalny</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
                </property>
                <widget class="QWidget" name="verticalLayoutWidget_4">
                 <property name="geometry">
@@ -338,12 +389,19 @@
                    <item>
                     <widget class="QLabel" name="label_11">
                      <property name="text">
-                      <string>TextLabel</string>
+                      <string>Okres</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QDoubleSpinBox" name="doubleSpinBox_3"/>
+                    <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
+                     <property name="minimum">
+                      <double>-100.000000000000000</double>
+                     </property>
+                     <property name="maximum">
+                      <double>100.000000000000000</double>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </item>
@@ -352,7 +410,7 @@
                    <item>
                     <widget class="QLabel" name="label_10">
                      <property name="text">
-                      <string>TextLabel</string>
+                      <string>Amplituda</string>
                      </property>
                     </widget>
                    </item>
@@ -375,8 +433,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>249</width>
-           <height>208</height>
+           <width>248</width>
+           <height>290</height>
           </rect>
          </property>
          <property name="sizePolicy">
@@ -435,7 +493,11 @@
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="spinBox"/>
+              <widget class="QSpinBox" name="spinBox">
+               <property name="maximum">
+                <number>100</number>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
@@ -449,7 +511,11 @@
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="spinBox_2"/>
+              <widget class="QSpinBox" name="spinBox_2">
+               <property name="maximum">
+                <number>100</number>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
@@ -470,7 +536,11 @@
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="spinBox_3"/>
+              <widget class="QSpinBox" name="spinBox_3">
+               <property name="maximum">
+                <number>100</number>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
@@ -489,26 +559,108 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>249</width>
-           <height>208</height>
+           <width>248</width>
+           <height>290</height>
           </rect>
          </property>
          <attribute name="label">
           <string>Obiekt regulacji ARX</string>
          </attribute>
+         <widget class="QWidget" name="verticalLayoutWidget_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>241</width>
+            <height>251</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_7" stretch="0,1,0,1,0,0">
+           <item>
+            <widget class="QLabel" name="label_12">
+             <property name="text">
+              <string>Współczynniki a_n</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPlainTextEdit" name="plainTextEdit"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_13">
+             <property name="text">
+              <string>Współczynniki b_n</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="textEdit"/>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox">
+             <property name="text">
+              <string>Opóźnienie k</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spinBox_5"/>
+           </item>
+          </layout>
+         </widget>
         </widget>
         <widget class="QWidget" name="page_3">
          <property name="geometry">
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>249</width>
-           <height>208</height>
+           <width>248</width>
+           <height>290</height>
           </rect>
          </property>
          <attribute name="label">
           <string>Nastawy symulacji</string>
          </attribute>
+         <widget class="QWidget" name="verticalLayoutWidget_5">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>241</width>
+            <height>101</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_12" stretch="2,3">
+             <item>
+              <widget class="QLabel" name="label_14">
+               <property name="text">
+                <string>Interwał czasowy</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_8"/>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="2,3">
+             <item>
+              <widget class="QLabel" name="label_15">
+               <property name="text">
+                <string>Ilość kroków</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="spinBox_6"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </widget>
       </item>
@@ -524,7 +676,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>966</width>
      <height>21</height>
     </rect>
    </property>
