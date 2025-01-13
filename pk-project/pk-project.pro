@@ -10,7 +10,6 @@ CONFIG += c++17
 
 SOURCES += \
     ModelARX.cpp \
-    Testy_ARX.cpp \
     Testy_PID.cpp \
     main.cpp \
     mainwindow.cpp \

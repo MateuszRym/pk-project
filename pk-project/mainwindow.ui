@@ -45,7 +45,7 @@
        <number>5</number>
       </property>
       <item>
-       <widget class="QGroupBox" name="groupBox_2">
+       <widget class="QGroupBox" name="SYMULACJA">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -67,7 +67,7 @@
         <property name="title">
          <string>SYMULACJA</string>
         </property>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="btnStart">
          <property name="geometry">
           <rect>
            <x>80</x>
@@ -80,7 +80,7 @@
           <string>Start</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="pushButton_4">
+        <widget class="QPushButton" name="btnReset">
          <property name="geometry">
           <rect>
            <x>80</x>
@@ -112,7 +112,7 @@
           <set>Qt::AlignmentFlag::AlignCenter</set>
          </property>
         </widget>
-        <widget class="QLabel" name="label_5">
+        <widget class="QLabel" name="labelStatus">
          <property name="geometry">
           <rect>
            <x>60</x>
@@ -134,7 +134,7 @@
           <set>Qt::AlignmentFlag::AlignCenter</set>
          </property>
         </widget>
-        <widget class="QPushButton" name="pushButton_5">
+        <widget class="QPushButton" name="btnStop">
          <property name="geometry">
           <rect>
            <x>80</x>
@@ -166,7 +166,7 @@
         <property name="currentIndex">
          <number>0</number>
         </property>
-        <widget class="QWidget" name="page">
+        <widget class="QWidget" name="pageSygnaly">
          <property name="geometry">
           <rect>
            <x>0</x>
@@ -193,8 +193,14 @@
            </property>
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_2" stretch="3,4,3">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>5</number>
+             </property>
              <item>
-              <widget class="QGroupBox" name="groupBox_3">
+              <widget class="QGroupBox" name="groupBoxSkok">
                <property name="title">
                 <string>Sygnał jednostkowy</string>
                </property>
@@ -220,6 +226,9 @@
                  <property name="spacing">
                   <number>2</number>
                  </property>
+                 <property name="leftMargin">
+                  <number>5</number>
+                 </property>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_5">
                    <item>
@@ -230,7 +239,7 @@
                     </widget>
                    </item>
                    <item>
-                    <widget class="QSpinBox" name="spinBox_4">
+                    <widget class="QSpinBox" name="spinBoxSkokAkt">
                      <property name="minimum">
                       <number>-100</number>
                      </property>
@@ -251,7 +260,7 @@
                     </widget>
                    </item>
                    <item>
-                    <widget class="QDoubleSpinBox" name="doubleSpinBox">
+                    <widget class="QDoubleSpinBox" name="doubleSpinBoxSkokAmp">
                      <property name="decimals">
                       <number>2</number>
                      </property>
@@ -270,9 +279,12 @@
               </widget>
              </item>
              <item>
-              <widget class="QGroupBox" name="groupBox_5">
+              <widget class="QGroupBox" name="groupBoxKwad">
                <property name="title">
                 <string>Sygnał prostokątny</string>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
                </property>
                <property name="checkable">
                 <bool>true</bool>
@@ -293,24 +305,20 @@
                  <property name="spacing">
                   <number>2</number>
                  </property>
+                 <property name="leftMargin">
+                  <number>5</number>
+                 </property>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_17">
                    <item>
                     <widget class="QLabel" name="label_19">
                      <property name="text">
-                      <string>Okres</string>
+                      <string>Okres (w krokach)</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QDoubleSpinBox" name="doubleSpinBox_11">
-                     <property name="minimum">
-                      <double>-100.000000000000000</double>
-                     </property>
-                     <property name="maximum">
-                      <double>100.000000000000000</double>
-                     </property>
-                    </widget>
+                    <widget class="QSpinBox" name="spinBoxKwadAkt"/>
                    </item>
                   </layout>
                  </item>
@@ -324,7 +332,7 @@
                     </widget>
                    </item>
                    <item>
-                    <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+                    <widget class="QDoubleSpinBox" name="doubleSpinBoxKwadWyp">
                      <property name="minimum">
                       <double>-100.000000000000000</double>
                      </property>
@@ -345,7 +353,7 @@
                     </widget>
                    </item>
                    <item>
-                    <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
+                    <widget class="QDoubleSpinBox" name="doubleSpinBoxKwadAmp">
                      <property name="minimum">
                       <double>-100.000000000000000</double>
                      </property>
@@ -361,7 +369,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QGroupBox" name="groupBox_4">
+              <widget class="QGroupBox" name="groupBoxSin">
                <property name="title">
                 <string>Sygnał sinusoidalny</string>
                </property>
@@ -384,24 +392,20 @@
                  <property name="spacing">
                   <number>2</number>
                  </property>
+                 <property name="leftMargin">
+                  <number>5</number>
+                 </property>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_10">
                    <item>
                     <widget class="QLabel" name="label_11">
                      <property name="text">
-                      <string>Okres</string>
+                      <string>Okres (w krokach)</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
-                     <property name="minimum">
-                      <double>-100.000000000000000</double>
-                     </property>
-                     <property name="maximum">
-                      <double>100.000000000000000</double>
-                     </property>
-                    </widget>
+                    <widget class="QSpinBox" name="spinBoxSinOkr"/>
                    </item>
                   </layout>
                  </item>
@@ -415,7 +419,7 @@
                     </widget>
                    </item>
                    <item>
-                    <widget class="QDoubleSpinBox" name="doubleSpinBox_4"/>
+                    <widget class="QDoubleSpinBox" name="doubleSpinBoxSinAmp"/>
                    </item>
                   </layout>
                  </item>
@@ -428,7 +432,7 @@
           </layout>
          </widget>
         </widget>
-        <widget class="QWidget" name="page_2">
+        <widget class="QWidget" name="pagePID">
          <property name="geometry">
           <rect>
            <x>0</x>
@@ -480,24 +484,14 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
-              <widget class="QLabel" name="label_3">
-               <property name="frameShadow">
-                <enum>QFrame::Shadow::Raised</enum>
-               </property>
+              <widget class="QLabel" name="label">
                <property name="text">
-                <string>Róźniczkująca</string>
-               </property>
-               <property name="wordWrap">
-                <bool>true</bool>
+                <string>Proporcjonalna</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="spinBox">
-               <property name="maximum">
-                <number>100</number>
-               </property>
-              </widget>
+              <widget class="QDoubleSpinBox" name="doubleSpinBoxI"/>
              </item>
             </layout>
            </item>
@@ -511,16 +505,12 @@
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="spinBox_2">
-               <property name="maximum">
-                <number>100</number>
-               </property>
-              </widget>
+              <widget class="QDoubleSpinBox" name="doubleSpinBoxD"/>
              </item>
             </layout>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton">
+            <widget class="QPushButton" name="btnResetD">
              <property name="text">
               <string>Zresetuj pamięć</string>
              </property>
@@ -529,23 +519,25 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_4">
              <item>
-              <widget class="QLabel" name="label">
+              <widget class="QLabel" name="label_3">
+               <property name="frameShadow">
+                <enum>QFrame::Shadow::Raised</enum>
+               </property>
                <property name="text">
-                <string>Proporcjonalna</string>
+                <string>Róźniczkująca</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="spinBox_3">
-               <property name="maximum">
-                <number>100</number>
-               </property>
-              </widget>
+              <widget class="QDoubleSpinBox" name="doubleSpinBoxP"/>
              </item>
             </layout>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_2">
+            <widget class="QPushButton" name="btnResetI">
              <property name="text">
               <string>Zresetuj pamięć</string>
              </property>
@@ -554,7 +546,7 @@
           </layout>
          </widget>
         </widget>
-        <widget class="QWidget" name="page_4">
+        <widget class="QWidget" name="pageARX">
          <property name="geometry">
           <rect>
            <x>0</x>
@@ -572,44 +564,204 @@
             <x>0</x>
             <y>0</y>
             <width>241</width>
-            <height>251</height>
+            <height>291</height>
            </rect>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_7" stretch="0,1,0,1,0,0">
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <property name="spacing">
+            <number>6</number>
+           </property>
            <item>
-            <widget class="QLabel" name="label_12">
-             <property name="text">
-              <string>Współczynniki a_n</string>
+            <widget class="QGroupBox" name="groupBox_3">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
              </property>
+             <property name="title">
+              <string>Współczynniki a:</string>
+             </property>
+             <widget class="QWidget" name="verticalLayoutWidget_6">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>20</y>
+                <width>241</width>
+                <height>91</height>
+               </rect>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_10">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>5</number>
+               </property>
+               <property name="rightMargin">
+                <number>5</number>
+               </property>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_15">
+                 <item>
+                  <widget class="QDoubleSpinBox" name="doubleSpinBoxARX_A"/>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btnARXAdd_A">
+                   <property name="text">
+                    <string>Dodaj</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btnARXRemove_A">
+                   <property name="text">
+                    <string>Usuń</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditARXView_A">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_16" stretch="4,2">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="labelARXInfo_A">
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton">
+                   <property name="text">
+                    <string>Wyczyść</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
             </widget>
            </item>
            <item>
-            <widget class="QPlainTextEdit" name="plainTextEdit"/>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_13">
-             <property name="text">
-              <string>Współczynniki b_n</string>
+            <widget class="QGroupBox" name="groupBox_4">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
              </property>
+             <property name="title">
+              <string>Współczynniki b:</string>
+             </property>
+             <widget class="QWidget" name="verticalLayoutWidget_7">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>20</y>
+                <width>241</width>
+                <height>91</height>
+               </rect>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_11">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>5</number>
+               </property>
+               <property name="rightMargin">
+                <number>5</number>
+               </property>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_18">
+                 <item>
+                  <widget class="QDoubleSpinBox" name="doubleSpinBoxARX_B"/>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btnARXAdd_B">
+                   <property name="text">
+                    <string>Dodaj</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btnARXRemove_B">
+                   <property name="text">
+                    <string>Usuń</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditARXView_B">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_19" stretch="4,2">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="labelARXInfo_A_2">
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_2">
+                   <property name="text">
+                    <string>Wyczyść</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
             </widget>
            </item>
            <item>
-            <widget class="QTextEdit" name="textEdit"/>
+            <layout class="QHBoxLayout" name="horizontalLayout_14">
+             <item>
+              <widget class="QLabel" name="label_16">
+               <property name="text">
+                <string>Opóźnienie (w krokach):</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="spinBox_5"/>
+             </item>
+            </layout>
            </item>
            <item>
             <widget class="QCheckBox" name="checkBox">
              <property name="text">
-              <string>Opóźnienie k</string>
+              <string>Uwzględnij zakłócenie</string>
              </property>
             </widget>
-           </item>
-           <item>
-            <widget class="QSpinBox" name="spinBox_5"/>
            </item>
           </layout>
          </widget>
         </widget>
-        <widget class="QWidget" name="page_3">
+        <widget class="QWidget" name="pageSymulacja">
          <property name="geometry">
           <rect>
            <x>0</x>
@@ -636,12 +788,12 @@
              <item>
               <widget class="QLabel" name="label_14">
                <property name="text">
-                <string>Interwał czasowy</string>
+                <string>Interwał czasowy:</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QDoubleSpinBox" name="doubleSpinBox_8"/>
+              <widget class="QDoubleSpinBox" name="doubleSpinBoxInterwal"/>
              </item>
             </layout>
            </item>
@@ -650,12 +802,12 @@
              <item>
               <widget class="QLabel" name="label_15">
                <property name="text">
-                <string>Ilość kroków</string>
+                <string>Liczba wyświetlanych kroków:</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="spinBox_6"/>
+              <widget class="QSpinBox" name="spinBoxWidokKrokow"/>
              </item>
             </layout>
            </item>

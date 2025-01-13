@@ -2,24 +2,25 @@
 #define SYMULACJA_H
 
 #include "syggen.h"
-#include "ModelARX.h"
 #include "pid.h"
+#include "ModelARX.h"
 #include "sprzwr.h"
 
 class Symulacja
 {
-    SygGen m_GenWartZad;
-    ModelARX m_ARX;
-    ModelPID m_PID;
-    SprZwr m_Uchyb;
+    SygGen* m_sygnal;
+    ModelPID m_pid;
+    ModelARX m_arx;
+    SprZwr m_uchyb;
 public:
     Symulacja();
-    Symulacja(const SygGen& baseGen, const ModelARX& baseARX, const ModelPID& basePID, const SprZwr& baseUchyb);
+    Symulacja(
+        SygGen& sygn,
+        double pid_k, double pid_ti, double pid_td,
+        std::vector<double> arx_a, std::vector<double> arx_b, int arx_k, bool arx_z);
 
-    SygGen& GenSygn() { return m_GenWartZad; }
-    ModelARX& ARX() { return m_ARX; }
-    ModelPID& PID() { return m_PID; }
-    SprZwr& Uchyb() { return m_Uchyb; }
+    void setSygnal(SygGen& sygn);
+    double symulujKrok();
 };
 
 #endif // SYMULACJA_H
