@@ -47,6 +47,22 @@ void Symulacja::resetPID_D() {
     m_pid.resetujPamiecRozn();
 }
 
+double Symulacja::getPID_output() {
+    return m_pid.symulujKrokPID(m_uchyb.getUchyb());
+}
+
+double Symulacja::getPID_P() {
+    return m_pid.czescProp(m_uchyb.getUchyb());
+}
+
+double Symulacja::getPID_I() {
+    return m_pid.czescCalk(m_uchyb.getUchyb());
+}
+
+double Symulacja::getPID_D() {
+    return m_pid.czescRozn(m_uchyb.getUchyb());
+}
+
 void Symulacja::addARX_a(double single_a) {
     m_arx.addA(single_a);
 }
@@ -77,5 +93,9 @@ void Symulacja::setARX_k(int k) {
 
 void Symulacja::setARX_z(bool z) {
     m_arx.setZakl(z);
+}
+
+double Symulacja::getUchyb() {
+    return m_uchyb.getUchyb();
 }
 

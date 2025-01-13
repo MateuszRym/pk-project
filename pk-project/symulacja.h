@@ -26,6 +26,10 @@ public:
     void setPID_tD(double tD);
     void resetPID_I();
     void resetPID_D();
+    double getPID_output();
+    double getPID_P();
+    double getPID_I();
+    double getPID_D();
     void addARX_a(double single_a);
     void addARX_b(double single_b);
     // void delARX_a(double index_a);
@@ -34,6 +38,7 @@ public:
     void clearARX_b();
     void setARX_k(int k);
     void setARX_z(bool z);
+    double getUchyb();
 
 };
 
