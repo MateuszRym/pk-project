@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     , UAR{}
     , arx_a_view{}
     , arx_b_view{}
+    , series1(new QLineSeries())
 {
     ui->setupUi(this);
 }
@@ -33,12 +34,15 @@ void MainWindow::on_btnStart_clicked()
 {
     ui->labelStatus->setText("Włączona");
 
+
     if(ui->groupBoxSkok->isChecked()) {
         SygSkok sygn{ ui->doubleSpinBoxSkokAmp->value(), ui->spinBoxSkokAkt->value() };
         setUpUAR();
-
         for (int i = 0; i < 30; i++) {      // 30 kroków dla testu
-            std::cerr << std::setprecision(3) << std::setw(4) << std::fixed << UAR.symulujKrok(sygn) << '\n';
+            WykresWeWy(i, sygn.sygnal(), UAR.symulujKrok(sygn));
+
+            //std::cerr << std::setprecision(3) << std::setw(4) << std::fixed << UAR.symulujKrok(sygn) << '\n';
+
         }
     } else if(ui->groupBoxKwad->isChecked()) {
         SygKwad sygn{ ui->doubleSpinBoxKwadAmp->value(), ui->doubleSpinBoxKwadWyp->value(), ui->spinBoxKwadAkt->value() };
@@ -166,3 +170,42 @@ void MainWindow::on_btnResetI_clicked()
     UAR.resetPID_I();
 }
 
+void MainWindow::WykresWeWy(double t, double we, double wy){
+    double minWe, maxWe, minWy, maxWy;
+
+
+    ui->chartView->chart()->removeAllSeries();
+    QValueAxis *xAxis_ = new QValueAxis;
+    xAxis_->setRange(0,1);
+    ui->chartView->chart()->addAxis(xAxis_, Qt::AlignBottom);
+    QValueAxis *yAxis_ = new QValueAxis;
+    yAxis_->setMax(2.00);
+    yAxis_->setMin(0.0);
+    ui->chartView->chart()->addAxis(yAxis_, Qt::AlignLeft);
+    ui->chartView->chart()->addSeries(series1);
+    ui->chartView->chart()->setAxisX(xAxis_, series1);
+    ui->chartView->chart()->setAxisY(yAxis_, series1);
+    ui->chartView->chart()->legend()->hide();
+
+    /**/
+
+
+
+    //double temp69;
+
+    //std::cerr << std::setprecision(3) << std::setw(4) << std::fixed << temp69 << '\n';
+    //series1->append(i,temp69);
+    //m_xAxis->setRange(0,i);
+}
+
+void MainWindow::WykresE(double t, double e){
+
+}
+
+void MainWindow::WykresSterPID(double t, double pid){
+
+}
+
+void MainWindow::WykresPID(double t, double p, double i, double d){
+
+}

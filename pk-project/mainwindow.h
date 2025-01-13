@@ -3,6 +3,7 @@
 
 #include "symulacja.h"
 #include <QMainWindow>
+#include <QtCharts>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -31,11 +32,17 @@ private slots:
     void on_btnReset_clicked();
     void on_btnResetD_clicked();
     void on_btnResetI_clicked();
+    void WykresWeWy(double t, double we, double wy);
+    void WykresE(double t, double e);
+    void WykresSterPID(double t, double pid);
+    void WykresPID(double t, double p, double i, double d);
 
 private:
     Ui::MainWindow *ui;
     Symulacja UAR;
     std::vector<double> arx_a_view;
     std::vector<double> arx_b_view;
+    QLineSeries* series1;
 };
+
 #endif // MAINWINDOW_H
