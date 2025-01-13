@@ -8,19 +8,19 @@
 
 class Symulacja
 {
-    SygGen* m_sygnal;
+    //SygGen* m_sygnal;
     ModelPID m_pid;
     ModelARX m_arx;
     SprZwr m_uchyb;
 public:
     Symulacja();
     Symulacja(
-        SygGen& sygn,
+        //SygGen& sygn,
         double pid_k, double pid_ti, double pid_td,
         std::vector<double> arx_a, std::vector<double> arx_b, int arx_k, bool arx_z);
 
-    void setSygnal(SygGen& sygn);
-    double symulujKrok();
+    // void setSygnal(SygGen& sygn);
+    double symulujKrok(SygGen& sygn);
 };
 
 #endif // SYMULACJA_H

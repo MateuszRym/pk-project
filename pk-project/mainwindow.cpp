@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "sygskok.h"
+#include "sygsin.h"
+#include "sygkwad.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -17,7 +20,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_btnStart_clicked()
 {
     if(ui->groupBoxSkok->isChecked()) {
-        // symulacja z sygnalem skok
+        SygSkok
     } else if(ui->groupBoxKwad->isChecked()) {
         // symulacja z sygnalem prostokatnym
     } else if(ui->groupBoxSin->isChecked()) {
