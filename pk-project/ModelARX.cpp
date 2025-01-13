@@ -60,6 +60,10 @@ void ModelARX::clearB()
     m_b.clear();
 }
 
+void ModelARX::setZakl(bool isOn) {
+    m_zakl_rng = isOn;
+}
+
 void ModelARX::setOpozn(int k)
 {
     if (k >= 1)

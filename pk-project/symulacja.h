@@ -21,6 +21,20 @@ public:
 
     // void setSygnal(SygGen& sygn);
     double symulujKrok(SygGen& sygn);
+    void setPID_k(double k);
+    void setPID_tI(double tI);
+    void setPID_tD(double tD);
+    void resetPID_I();
+    void resetPID_D();
+    void addARX_a(double single_a);
+    void addARX_b(double single_b);
+    // void delARX_a(double index_a);
+    // void delARX_b(double single_b);
+    void clearARX_a();
+    void clearARX_b();
+    void setARX_k(int k);
+    void setARX_z(bool z);
+
 };
 
 #endif // SYMULACJA_H

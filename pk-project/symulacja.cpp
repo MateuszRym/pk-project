@@ -26,3 +26,56 @@ double Symulacja::symulujKrok(SygGen& sygn) {
 
     return wynik;
 }
+
+void Symulacja::setPID_k(double k) {
+    m_pid.ustawK(k);
+}
+
+void Symulacja::setPID_tI(double tI) {
+    m_pid.ustawTI(tI);
+}
+
+void Symulacja::setPID_tD(double tD) {
+    m_pid.ustawTD(tD);
+}
+
+void Symulacja::resetPID_I() {
+    m_pid.resetujPamiecCalk();
+}
+
+void Symulacja::resetPID_D() {
+    m_pid.resetujPamiecRozn();
+}
+
+void Symulacja::addARX_a(double single_a) {
+    m_arx.addA(single_a);
+}
+
+void Symulacja::addARX_b(double single_b) {
+    m_arx.addB(single_b);
+}
+
+// void Symulacja::delARX_a(double index_a) {
+//     // m_arx.removeA(index_a);
+// }
+
+// void Symulacja::delARX_b(double single_b) {
+//     // m_arx.removeB(single_b);
+// }
+
+void Symulacja::clearARX_a() {
+    m_arx.clearA();
+}
+
+void Symulacja::clearARX_b() {
+    m_arx.clearB();
+}
+
+void Symulacja::setARX_k(int k) {
+    m_arx.setOpozn(k);
+}
+
+void Symulacja::setARX_z(bool z) {
+    m_arx.setZakl(z);
+}
+

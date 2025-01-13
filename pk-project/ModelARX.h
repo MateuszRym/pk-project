@@ -26,6 +26,7 @@ public:
     void removeB(int index);
     void clearB();
     void setOpozn(int k);
+    void setZakl(bool isOn);
     int getOpozn() const { return m_k_opozn; }
     bool getCzyZakl() const { return m_zakl_rng; }
 
