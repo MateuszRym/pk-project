@@ -59,10 +59,12 @@ void MainWindow::advance() {
     ui->chartView->chart()->addSeries(serieIn);
     ui->chartView->chart()->setAxisX(xAxis_, serieIn);
     ui->chartView->chart()->setAxisY(yAxis_, serieIn);
+    serieIn->setName("Sygnał wejściowy");
     ui->chartView->chart()->addSeries(serieOut);
     ui->chartView->chart()->setAxisX(xAxis_, serieOut);
     ui->chartView->chart()->setAxisY(yAxis_, serieOut);
-    ui->chartView->chart()->legend()->hide();
+    serieOut->setName("Sygnał wyjściowy");
+    //ui->chartView->chart()->legend()->hide();
 
     //Uchyb E
     QLineSeries *serieE = new QLineSeries();
@@ -76,7 +78,8 @@ void MainWindow::advance() {
     ui->chartViewE->chart()->addSeries(serieE);
     ui->chartViewE->chart()->setAxisX(xAxisE, serieE);
     ui->chartViewE->chart()->setAxisY(yAxisE, serieE);
-    ui->chartViewE->chart()->legend()->hide();
+    serieE->setName("Wartość uchybu");
+    //ui->chartViewE->chart()->legend()->hide();
 
     //PID
     QLineSeries *seriePid = new QLineSeries();
@@ -90,7 +93,8 @@ void MainWindow::advance() {
     ui->chartViewPid->chart()->addSeries(seriePid);
     ui->chartViewPid->chart()->setAxisX(xAxisPid, seriePid);
     ui->chartViewPid->chart()->setAxisY(yAxisPid, seriePid);
-    ui->chartViewPid->chart()->legend()->hide();
+    seriePid->setName("Wartość regulatora PID");
+    //ui->chartViewPid->chart()->legend()->hide();
 
     //P/I/D jako 3
     QLineSeries *serieP = new QLineSeries();
