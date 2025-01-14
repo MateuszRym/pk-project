@@ -22,7 +22,8 @@ SOURCES += \
     sygskok.cpp \
     symulacja.cpp \
     testARX.cpp \
-    testcmd.cpp
+    testcmd.cpp \
+    wykres.cpp
     wejscie.cpp
 
 HEADERS += \

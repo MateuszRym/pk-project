@@ -850,7 +850,7 @@
              <item>
               <widget class="QLabel" name="label_14">
                <property name="text">
-                <string>Interwał czasowy [s]:</string>
+                <string>Interwał czasowy [ms]:</string>
                </property>
               </widget>
              </item>
@@ -858,6 +858,9 @@
               <widget class="QSpinBox" name="spinBoxInterwal">
                <property name="maximum">
                 <number>10000</number>
+               </property>
+               <property name="value">
+                <number>1000</number>
                </property>
               </widget>
              </item>
@@ -873,7 +876,11 @@
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="spinBoxWidokKrokow"/>
+              <widget class="QSpinBox" name="spinBoxWidokKrokow">
+               <property name="value">
+                <number>10</number>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
