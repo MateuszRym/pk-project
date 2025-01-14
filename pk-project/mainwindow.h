@@ -42,7 +42,6 @@ private:
     Symulacja UAR;
     std::vector<double> arx_a_view;
     std::vector<double> arx_b_view;
-    QLineSeries* series1;
 };
 
 #endif // MAINWINDOW_H

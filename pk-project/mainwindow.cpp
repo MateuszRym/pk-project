@@ -12,7 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
     , UAR{}
     , arx_a_view{}
     , arx_b_view{}
-    , series1(new QLineSeries())
 {
     ui->setupUi(this);
 }
@@ -34,12 +33,47 @@ void MainWindow::on_btnStart_clicked()
 {
     ui->labelStatus->setText("Włączona");
 
+    double min, max, we, wy;
+    QLineSeries *serieIn = new QLineSeries();
+    QLineSeries *serieOut = new QLineSeries();
+
+    ui->chartView->chart()->removeAllSeries();
+    static QValueAxis *xAxis_ = new QValueAxis;
+    xAxis_->setRange(0,1);
+    //ui->chartView->chart()->addAxis(xAxis_, Qt::AlignBottom);
+    static QValueAxis *yAxis_ = new QValueAxis;
+    yAxis_->setMax(2.00);
+    yAxis_->setMin(0.0);
+    //ui->chartView->chart()->addAxis(yAxis_, Qt::AlignLeft);
+    ui->chartView->chart()->addSeries(serieIn);
+    ui->chartView->chart()->setAxisX(xAxis_, serieIn);
+    ui->chartView->chart()->setAxisY(yAxis_, serieIn);
+    ui->chartView->chart()->addSeries(serieOut);
+    ui->chartView->chart()->setAxisX(xAxis_, serieOut);
+    ui->chartView->chart()->setAxisY(yAxis_, serieOut);
+    ui->chartView->chart()->legend()->hide();
 
     if(ui->groupBoxSkok->isChecked()) {
         SygSkok sygn{ ui->doubleSpinBoxSkokAmp->value(), ui->spinBoxSkokAkt->value() };
         setUpUAR();
         for (int i = 0; i < 30; i++) {      // 30 kroków dla testu
-            WykresWeWy(i, sygn.sygnal(), UAR.symulujKrok(sygn));
+            we = sygn.sygnal(); wy = UAR.symulujKrok(sygn);
+            if(min == NULL){
+                min = 0;
+                max = we;
+                if(wy>max)max=wy;
+                else if(wy<min)min=wy;
+            }else{
+                if(we<min)min = we;
+                if(we>max)max = we;
+                if(wy<min)min = wy;
+                if(wy>max)max = wy;
+            }
+
+            serieIn->append(i, we);
+            serieOut->append(i, wy);
+            xAxis_->setRange(0,i);
+            yAxis_->setRange(min,1.05*max);
 
             //std::cerr << std::setprecision(3) << std::setw(4) << std::fixed << UAR.symulujKrok(sygn) << '\n';
 
@@ -49,14 +83,52 @@ void MainWindow::on_btnStart_clicked()
         setUpUAR();
 
         for (int i = 0; i < 30; i++) {      // 30 kroków dla testu
-            std::cerr << std::setprecision(3) << std::setw(4) << std::fixed << UAR.symulujKrok(sygn) << '\n';
+            we = sygn.sygnal(); wy = UAR.symulujKrok(sygn);
+            if(min == NULL){
+                min = 0;
+                max = we;
+                if(wy>max)max=wy;
+                else if(wy<min)min=wy;
+            }else{
+                if(we<min)min = we;
+                if(we>max)max = we;
+                if(wy<min)min = wy;
+                if(wy>max)max = wy;
+            }
+
+            serieIn->append(i, we);
+            serieOut->append(i, wy);
+            xAxis_->setRange(0,i);
+            yAxis_->setRange(min,1.05*max);
+
+
+            //std::cerr << std::setprecision(3) << std::setw(4) << std::fixed << UAR.symulujKrok(sygn) << '\n';
         }
     } else if(ui->groupBoxSin->isChecked()) {
         SygSin sygn{ ui->doubleSpinBoxSinAmp->value(), ui->spinBoxSinOkr->value() };
         setUpUAR();
 
         for (int i = 0; i < 30; i++) {      // 30 kroków dla testu
-            std::cerr << std::setprecision(3) << std::setw(4) << std::fixed << UAR.symulujKrok(sygn) << '\n';
+            we = sygn.sygnal(); wy = UAR.symulujKrok(sygn);
+            if(min == NULL){
+                min = 0;
+                max = we;
+                if(wy>max)max=wy;
+                else if(wy<min)min=wy;
+            }else{
+                if(we<min)min = we;
+                if(we>max)max = we;
+                if(wy<min)min = wy;
+                if(wy>max)max = wy;
+            }
+
+            serieIn->append(i, we);
+            serieOut->append(i, wy);
+            xAxis_->setRange(0,i);
+            yAxis_->setRange(min,1.05*max);
+
+
+            //std::cerr << std::setprecision(3) << std::setw(4) << std::fixed << UAR.symulujKrok(sygn) << '\n';
         }
     }
 }
@@ -171,23 +243,47 @@ void MainWindow::on_btnResetI_clicked()
 }
 
 void MainWindow::WykresWeWy(double t, double we, double wy){
-    double minWe, maxWe, minWy, maxWy;
+    /*
 
+    static double min, max;
+    //static QLineSeries serieIn = new QLineSeries();
+    //static QLineSeries serieOut = new QLineSeries();
+
+    if(min == NULL){
+        min = we;
+        max = we;
+        if(we==wy)max+=1.0;
+        else if(wy>we)max=wy;
+        else if(wy<we)min=wy;
+
+
+    }else{
+        if(we<min)min = we;
+        if(we>max)max = we;
+        if(wy<min)min = wy;
+        if(wy>max)max = wy;
+    }
 
     ui->chartView->chart()->removeAllSeries();
-    QValueAxis *xAxis_ = new QValueAxis;
+    static QValueAxis *xAxis_ = new QValueAxis;
     xAxis_->setRange(0,1);
     ui->chartView->chart()->addAxis(xAxis_, Qt::AlignBottom);
-    QValueAxis *yAxis_ = new QValueAxis;
+    static QValueAxis *yAxis_ = new QValueAxis;
     yAxis_->setMax(2.00);
     yAxis_->setMin(0.0);
     ui->chartView->chart()->addAxis(yAxis_, Qt::AlignLeft);
-    ui->chartView->chart()->addSeries(series1);
-    ui->chartView->chart()->setAxisX(xAxis_, series1);
-    ui->chartView->chart()->setAxisY(yAxis_, series1);
+    ui->chartView->chart()->addSeries(serieIn);
+    ui->chartView->chart()->setAxisX(xAxis_, serieIn);
+    ui->chartView->chart()->setAxisY(yAxis_, serieIn);
+    // ui->chartView->chart()->addSeries(serieOut);
+    // ui->chartView->chart()->setAxisX(xAxis_, serieOut);
+    // ui->chartView->chart()->setAxisY(yAxis_, serieOut);
     ui->chartView->chart()->legend()->hide();
 
-    /**/
+    serieIn->append(t, we);
+    //serieOut->append(t, wy);
+    xAxis_->setRange(0,t);
+    */
 
 
 
