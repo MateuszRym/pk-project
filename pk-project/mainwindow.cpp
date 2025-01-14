@@ -33,6 +33,9 @@ void MainWindow::on_btnStart_clicked()
 {
     ui->labelStatus->setText("Włączona");
 
+
+    //Wejście i wyjście
+
     double min, max, we, wy;
     QLineSeries *serieIn = new QLineSeries();
     QLineSeries *serieOut = new QLineSeries();
@@ -131,6 +134,9 @@ void MainWindow::on_btnStart_clicked()
             //std::cerr << std::setprecision(3) << std::setw(4) << std::fixed << UAR.symulujKrok(sygn) << '\n';
         }
     }
+
+
+
 }
 
 void MainWindow::on_groupBoxKwad_toggled(bool arg1)

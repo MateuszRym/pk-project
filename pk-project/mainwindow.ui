@@ -26,7 +26,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,6">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1">
     <item>
      <layout class="QVBoxLayout" name="verticalLayout" stretch="3,0">
       <property name="spacing">
@@ -866,7 +866,28 @@
      </layout>
     </item>
     <item>
-     <widget class="QChartView" name="chartView"/>
+     <layout class="QVBoxLayout" name="verticalLayout_8" stretch="1,1">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_21" stretch="1,1">
+        <item>
+         <widget class="QChartView" name="chartView"/>
+        </item>
+        <item>
+         <widget class="QChartView" name="chartViewE"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_20" stretch="1,1">
+        <item>
+         <widget class="QChartView" name="chartViewPid"/>
+        </item>
+        <item>
+         <widget class="QChartView" name="chartViewPID3"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
