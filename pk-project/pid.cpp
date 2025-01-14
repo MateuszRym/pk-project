@@ -4,9 +4,11 @@ ModelPID::ModelPID()
     : k{}
     , tI{}
     , tD{}
+    , pamiecCalk{0.0}
+    , pamiecRozn{0.0}
 {}
 
-ModelPID::ModelPID(double tempK, double tempTI, double tempTD) : k{tempK}, tI{tempTI}, tD{tempTD}{
+ModelPID::ModelPID(double tempK, double tempTI, double tempTD) : k{tempK}, tI{tempTI}, tD{tempTD}, pamiecCalk{0.0}, pamiecRozn{0.0} {
 
 }
 
@@ -27,11 +29,11 @@ void ModelPID::ustawTD(double tempTD){
 }
 
 void ModelPID::resetujPamiecCalk(){
-    pamiecCalk = 0;
+    pamiecCalk = 0.0;
 }
 
 void ModelPID::resetujPamiecRozn(){
-    pamiecRozn = 0;
+    pamiecRozn = 0.0;
 }
 
 void ModelPID::resetujPamiec(){

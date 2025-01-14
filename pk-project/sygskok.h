@@ -1,16 +1,16 @@
-#ifndef SYGSKOK_H
-#define SYGSKOK_H
+// #ifndef SYGSKOK_H
+// #define SYGSKOK_H
 
-#include "syggen.h"
+// #include "syggen.h"
 
-class SygSkok : public SygGen
-{
-    int m_krok_aktyw;
-public:
-    SygSkok(double amp, int clk_aktyw);
-    double sygnal() override;
-    void setZegarAkt(int z_akt);
-    int getZegarAkt() const { return m_krok_aktyw; }
-};
+// class SygSkok : public SygGen
+// {
+//     int m_krok_aktyw;
+// public:
+//     SygSkok(double amp, int clk_aktyw);
+//     double sygnal() override;
+//     void setZegarAkt(int z_akt);
+//     int getZegarAkt() const { return m_krok_aktyw; }
+// };
 
-#endif // SYGSKOK_H
+// #endif // SYGSKOK_H

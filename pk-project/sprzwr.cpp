@@ -9,9 +9,9 @@ SprZwr::SprZwr(double y)
     : m_poprz_y{ y }
 {}
 
-double SprZwr::liczUchyb(SygGen& wejscie)
+double SprZwr::liczUchyb(double sygn)
 {
-    double e = wejscie.sygnal() - getPoprzY();
+    double e = sygn - getPoprzY();
     m_uchyb = e;
     return e;
 }

@@ -639,7 +639,7 @@
                <rect>
                 <x>0</x>
                 <y>20</y>
-                <width>249</width>
+                <width>251</width>
                 <height>91</height>
                </rect>
               </property>
@@ -725,7 +725,7 @@
                <rect>
                 <x>0</x>
                 <y>20</y>
-                <width>249</width>
+                <width>251</width>
                 <height>91</height>
                </rect>
               </property>
@@ -856,6 +856,9 @@
              </item>
              <item>
               <widget class="QSpinBox" name="spinBoxInterwal">
+               <property name="minimum">
+                <number>100</number>
+               </property>
                <property name="maximum">
                 <number>10000</number>
                </property>
@@ -877,6 +880,12 @@
              </item>
              <item>
               <widget class="QSpinBox" name="spinBoxWidokKrokow">
+               <property name="minimum">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <number>100</number>
+               </property>
                <property name="value">
                 <number>10</number>
                </property>

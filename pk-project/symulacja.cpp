@@ -1,27 +1,24 @@
 #include "symulacja.h"
 
 Symulacja::Symulacja()
-    // : m_sygnal{nullptr}
-    : m_pid{}
-    , m_arx{}
+    //: m_sygnal{&sygn}
+    : m_arx{}
+    , m_pid{}
+    , m_sygnal{}
     , m_uchyb{}
 {}
 
-Symulacja::Symulacja(//SygGen& sygn,
+Symulacja::Symulacja(SygGen sygn,
                      double pid_k, double pid_ti, double pid_td,
                      std::vector<double> arx_a, std::vector<double> arx_b, int arx_k, bool arx_z)
-    // : m_sygnal{ &sygn }
-    : m_pid{ pid_k, pid_ti, pid_td }
-    , m_arx{ arx_a, arx_b, arx_k, arx_z }
+    : m_arx{ arx_a, arx_b, arx_k, arx_z }
+    , m_pid{ pid_k, pid_ti, pid_td }
+    , m_sygnal{ sygn }
     , m_uchyb{}
 {}
 
-// void Symulacja::setSygnal(SygGen& sygn) {
-//     m_sygnal = &sygn;
-// }
-
-double Symulacja::symulujKrok(SygGen& sygn) {
-    double wynik = m_arx.symuluj(m_pid.symulujKrokPID(m_uchyb.liczUchyb(sygn)));
+double Symulacja::symulujKrok() {
+    double wynik = m_arx.symuluj(m_pid.symulujKrokPID(m_uchyb.liczUchyb(m_sygnal.getSygn())));
     m_uchyb.setPoprzY(wynik);
 
     return wynik;
@@ -93,6 +90,26 @@ void Symulacja::setARX_k(int k) {
 
 void Symulacja::setARX_z(bool z) {
     m_arx.setZakl(z);
+}
+
+// void Symulacja::setSygnal(SygGen& sygn) {
+//     m_sygnal = &sygn;
+// }
+
+void Symulacja::liczSygnalSkok(double amp, int krok_aktyw) {
+    m_sygnal.sygnalSkok(amp, krok_aktyw);
+}
+
+void Symulacja::liczSygnalKwad(double amp, int okr, double wyp) {
+    m_sygnal.sygnalKwad(amp, okr, wyp);
+}
+
+void Symulacja::liczSygnalSin(double amp, int okr) {
+    m_sygnal.sygnalSin(amp, okr);
+}
+
+double Symulacja::getSygn() const {
+    return m_sygnal.getSygn();
 }
 
 double Symulacja::getUchyb() {

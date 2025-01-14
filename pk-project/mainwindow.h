@@ -19,9 +19,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void setUpUAR();
 
 private slots:
+    void setUpUAR();
     void on_btnStart_clicked();
     void advance();
     void on_groupBoxKwad_toggled(bool arg1);
@@ -46,6 +46,19 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QTimer* timer = nullptr;
+    QLineSeries *serieIn = nullptr;
+    QLineSeries *serieOut = nullptr;
+    QLineSeries *serieE = nullptr;
+    QLineSeries *seriePid = nullptr;
+    QLineSeries *serieP = nullptr;
+    QLineSeries *serieI = nullptr;
+    QLineSeries *serieD = nullptr;
+    QValueAxis *xAxis_ = nullptr;
+    QValueAxis *yAxis_ = nullptr;
+    QValueAxis *yAxisE = nullptr;
+    QValueAxis *yAxisPid = nullptr;
+    QValueAxis *yAxis__ = nullptr;
+
     Symulacja UAR;
     std::vector<double> arx_a_view;
     std::vector<double> arx_b_view;
