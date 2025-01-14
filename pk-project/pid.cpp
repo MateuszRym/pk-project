@@ -44,19 +44,18 @@ double ModelPID::czescProp(double eI){
 }
 
 double ModelPID::czescCalk(double eI){
-    pamiecCalk += eI;
-    return pamiecCalk / tI;
+    if (tI != 0) {
+        pamiecCalk += eI;
+        return pamiecCalk / tI;
+    }
+    else
+        return 0.0;
 }
 
 double ModelPID::czescRozn(double eI){
-    if (pamiecRozn == 0.0){
-        pamiecRozn += eI;
-        return 0.0;
-    }else{
-        double temp = tD * (eI - pamiecRozn);
-        pamiecRozn = eI;
-        return temp;
-    }
+    double temp = tD * (eI - pamiecRozn);
+    pamiecRozn = eI;
+    return temp;
 }
 
 double ModelPID::symulujKrokPID(double eI){

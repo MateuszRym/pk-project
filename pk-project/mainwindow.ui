@@ -164,7 +164,7 @@
          </size>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>3</number>
         </property>
         <widget class="QWidget" name="pageSygnaly">
          <property name="geometry">
@@ -846,16 +846,20 @@
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_9">
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_12" stretch="2,3">
+            <layout class="QHBoxLayout" name="horizontalLayout_12" stretch="0,0">
              <item>
               <widget class="QLabel" name="label_14">
                <property name="text">
-                <string>Interwał czasowy:</string>
+                <string>Interwał czasowy [s]:</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QDoubleSpinBox" name="doubleSpinBoxInterwal"/>
+              <widget class="QSpinBox" name="spinBoxInterwal">
+               <property name="maximum">
+                <number>10000</number>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>

@@ -9,11 +9,14 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , timer{new QTimer(this)}
     , UAR{}
     , arx_a_view{}
     , arx_b_view{}
 {
     ui->setupUi(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(advance()));
+    on_spinBoxInterwal_valueChanged(ui->spinBoxInterwal->value());
 }
 
 MainWindow::~MainWindow()
@@ -31,9 +34,13 @@ void MainWindow::setUpUAR() {
 
 void MainWindow::on_btnStart_clicked()
 {
+    ui->btnStop->setEnabled(true);
+    ui->btnStart->setEnabled(false);
     ui->labelStatus->setText("Włączona");
-    int krok;
+    timer->start();
+}
 
+void MainWindow::advance() {
     //~~~~~~~~~~~~~~~~~~zamienić i na krok w pętlach, oraz czytać wartość kroku poprzez sygn.getKrok();~~~~~~~~~~~~~~~~~~~~~~~~
 
     //Wejście i wyjście
@@ -113,7 +120,7 @@ void MainWindow::on_btnStart_clicked()
         SygSkok sygn{ ui->doubleSpinBoxSkokAmp->value(), ui->spinBoxSkokAkt->value() };
         setUpUAR();
         for (int i = 0; i < 30; i++) {      // 30 kroków dla testu
-            we = sygn.sygnal(); wy = UAR.symulujKrok(sygn); krok = i; //sygn.getKrok();  <- do zamiany
+            we = sygn.sygnal(); wy = UAR.symulujKrok(sygn); //sygn.getKrok();  <- do zamiany
 
             if(we<min){min = we;}
             if(we>max){max = we;}
@@ -169,7 +176,7 @@ void MainWindow::on_btnStart_clicked()
         setUpUAR();
 
         for (int i = 0; i < 30; i++) {      // 30 kroków dla testu
-            we = sygn.sygnal(); wy = UAR.symulujKrok(sygn); krok = i; //sygn.getKrok();  <- do zamiany
+            we = sygn.sygnal(); wy = UAR.symulujKrok(sygn); //sygn.getKrok();  <- do zamiany
 
             if(we<min){min = we;}
             if(we>max){max = we;}
@@ -225,7 +232,7 @@ void MainWindow::on_btnStart_clicked()
         setUpUAR();
 
         for (int i = 0; i < 30; i++) {      // 30 kroków dla testu
-            we = sygn.sygnal(); wy = UAR.symulujKrok(sygn); krok = i; //sygn.getKrok();  <- do zamiany
+            we = sygn.sygnal(); wy = UAR.symulujKrok(sygn); //sygn.getKrok();  <- do zamiany
 
             if(we<min){min = we;}
             if(we>max){max = we;}
@@ -277,10 +284,6 @@ void MainWindow::on_btnStart_clicked()
             yAxis__->setRange(minPID3-0.1,0.1+maxPID3);
         }
     }
-
-
-
-
 
 }
 
@@ -445,6 +448,14 @@ void MainWindow::WykresWeWy(double t, double we, double wy){
     //m_xAxis->setRange(0,i);
 }
 
+void MainWindow::on_btnStop_clicked()
+{
+    timer->stop();
+    ui->btnStop->setEnabled(false);
+    ui->btnStart->setEnabled(true);
+    ui->labelStatus->setText("Zatrzymana");
+}
+
 void MainWindow::WykresE(double t, double e){
 
 }
@@ -456,3 +467,9 @@ void MainWindow::WykresSterPID(double t, double pid){
 void MainWindow::WykresPID(double t, double p, double i, double d){
 
 }
+
+void MainWindow::on_spinBoxInterwal_valueChanged(int arg1)
+{
+    timer->setInterval(arg1);
+}
+

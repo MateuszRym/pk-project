@@ -4,6 +4,7 @@
 #include "symulacja.h"
 #include <QMainWindow>
 #include <QtCharts>
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -22,6 +23,7 @@ public:
 
 private slots:
     void on_btnStart_clicked();
+    void advance();
     void on_groupBoxKwad_toggled(bool arg1);
     void on_groupBoxSin_toggled(bool arg1);
     void on_groupBoxSkok_toggled(bool arg1);
@@ -32,13 +34,18 @@ private slots:
     void on_btnReset_clicked();
     void on_btnResetD_clicked();
     void on_btnResetI_clicked();
+    void on_btnStop_clicked();
+
     void WykresWeWy(double t, double we, double wy);
     void WykresE(double t, double e);
     void WykresSterPID(double t, double pid);
     void WykresPID(double t, double p, double i, double d);
 
+    void on_spinBoxInterwal_valueChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
+    QTimer* timer = nullptr;
     Symulacja UAR;
     std::vector<double> arx_a_view;
     std::vector<double> arx_b_view;
