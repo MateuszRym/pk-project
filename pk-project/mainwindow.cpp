@@ -53,9 +53,11 @@ void MainWindow::on_btnStart_clicked()
     ui->chartView->chart()->setAxisX(xAxis_, serieIn);
     ui->chartView->chart()->setAxisY(yAxis_, serieIn);
     ui->chartView->chart()->addSeries(serieOut);
+    serieIn->setName("Wartość zadana");
     ui->chartView->chart()->setAxisX(xAxis_, serieOut);
     ui->chartView->chart()->setAxisY(yAxis_, serieOut);
-    ui->chartView->chart()->legend()->hide();
+    //ui->chartView->chart()->legend()->hide();
+    serieOut->setName("Wartość regulowana");
 
     //Uchyb E
     QLineSeries *serieE = new QLineSeries();
@@ -69,7 +71,8 @@ void MainWindow::on_btnStart_clicked()
     ui->chartViewE->chart()->addSeries(serieE);
     ui->chartViewE->chart()->setAxisX(xAxisE, serieE);
     ui->chartViewE->chart()->setAxisY(yAxisE, serieE);
-    ui->chartViewE->chart()->legend()->hide();
+    //ui->chartViewE->chart()->legend()->hide();
+    serieE->setName("Uchyb");
 
     //PID
     QLineSeries *seriePid = new QLineSeries();
@@ -83,7 +86,8 @@ void MainWindow::on_btnStart_clicked()
     ui->chartViewPid->chart()->addSeries(seriePid);
     ui->chartViewPid->chart()->setAxisX(xAxisPid, seriePid);
     ui->chartViewPid->chart()->setAxisY(yAxisPid, seriePid);
-    ui->chartViewPid->chart()->legend()->hide();
+    //ui->chartViewPid->chart()->legend()->hide();
+    seriePid->setName("Wyjście regulatora");
 
     //P/I/D jako 3
     QLineSeries *serieP = new QLineSeries();
@@ -106,7 +110,10 @@ void MainWindow::on_btnStart_clicked()
     ui->chartViewPID3->chart()->addSeries(serieD);
     ui->chartViewPID3->chart()->setAxisX(xAxis__, serieD);
     ui->chartViewPID3->chart()->setAxisY(yAxis__, serieD);
-    ui->chartViewPID3->chart()->legend()->hide();
+    //ui->chartViewPID3->chart()->legend()->hide();
+    serieP->setName("Wart. P");
+    serieI->setName("Wart. I");
+    serieD->setName("Wart. D");
 
 
     if(ui->groupBoxSkok->isChecked()) {
