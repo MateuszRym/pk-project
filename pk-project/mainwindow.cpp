@@ -51,73 +51,65 @@ void MainWindow::on_btnStart_clicked()
     ui->labelStatus->setText("Włączona");
     setUpUAR();
 
-    ui->chartView->chart()->removeAllSeries();
-    static QValueAxis *xAxis_ = new QValueAxis;
-    xAxis_->setRange(0,1);
-    //ui->chartView->chart()->addAxis(xAxis_, Qt::AlignBottom);
-    static QValueAxis *yAxis_ = new QValueAxis;
-    yAxis_->setRange(0.0, 2.0);
-    //ui->chartView->chart()->addAxis(yAxis_, Qt::AlignLeft);
-    ui->chartView->chart()->addSeries(serieIn);
-    ui->chartView->chart()->setAxisX(xAxis_, serieIn);
-    ui->chartView->chart()->setAxisY(yAxis_, serieIn);
-    serieIn->setName("Sygnał wejściowy");
-    ui->chartView->chart()->addSeries(serieOut);
-    ui->chartView->chart()->setAxisX(xAxis_, serieOut);
-    ui->chartView->chart()->setAxisY(yAxis_, serieOut);
-    serieOut->setName("Sygnał wyjściowy");
-    //ui->chartView->chart()->legend()->hide();
+    // ui->chartView->chart()->removeAllSeries();
+    // xAxis_->setRange(0,1);
+    // //ui->chartView->chart()->addAxis(xAxis_, Qt::AlignBottom);
+    // yAxis_->setRange(0.0, 2.0);
+    // //ui->chartView->chart()->addAxis(yAxis_, Qt::AlignLeft);
+    // ui->chartView->chart()->addSeries(serieIn);
+    // ui->chartView->chart()->setAxisX(xAxis_, serieIn);
+    // ui->chartView->chart()->setAxisY(yAxis_, serieIn);
+    // serieIn->setName("Sygnał wejściowy");
+    // ui->chartView->chart()->addSeries(serieOut);
+    // ui->chartView->chart()->setAxisX(xAxis_, serieOut);
+    // ui->chartView->chart()->setAxisY(yAxis_, serieOut);
+    // serieOut->setName("Sygnał wyjściowy");
+    // //ui->chartView->chart()->legend()->hide();
 
-    //Uchyb E
-    ui->chartViewE->chart()->removeAllSeries();
-    static QValueAxis *xAxisE = new QValueAxis;
-    xAxisE->setRange(0,1);
-    //ui->chartViewE->chart()->addAxis(xAxisE, Qt::AlignBottom);
-    static QValueAxis *yAxisE = new QValueAxis;
-    yAxisE->setRange(0.0, 2.0);
-    //ui->chartViewE->chart()->addAxis(yAxisE, Qt::AlignLeft);
-    ui->chartViewE->chart()->addSeries(serieE);
-    ui->chartViewE->chart()->setAxisX(xAxisE, serieE);
-    ui->chartViewE->chart()->setAxisY(yAxisE, serieE);
-    serieE->setName("Wartość uchybu");
-    //ui->chartViewE->chart()->legend()->hide();
+    // //Uchyb E
+    // ui->chartViewE->chart()->removeAllSeries();
+    // xAxis_->setRange(0,1);
+    // //ui->chartViewE->chart()->addAxis(xAxisE, Qt::AlignBottom);
+    // yAxisE->setRange(0.0, 2.0);
+    // //ui->chartViewE->chart()->addAxis(yAxisE, Qt::AlignLeft);
+    // ui->chartViewE->chart()->addSeries(serieE);
+    // ui->chartViewE->chart()->setAxisX(xAxis_, serieE);
+    // ui->chartViewE->chart()->setAxisY(yAxisE, serieE);
+    // serieE->setName("Wartość uchybu");
+    // //ui->chartViewE->chart()->legend()->hide();
 
-    //PID
-    ui->chartViewPid->chart()->removeAllSeries();
-    static QValueAxis *xAxisPid = new QValueAxis;
-    xAxisPid->setRange(0,1);
-    //ui->chartViewPid->chart()->addAxis(xAxisPid, Qt::AlignBottom);
-    static QValueAxis *yAxisPid = new QValueAxis;
-    yAxisPid->setRange(0.0, 2.0);
-    //ui->chartViewPid->chart()->addAxis(yAxisPid, Qt::AlignLeft);
-    ui->chartViewPid->chart()->addSeries(seriePid);
-    ui->chartViewPid->chart()->setAxisX(xAxisPid, seriePid);
-    ui->chartViewPid->chart()->setAxisY(yAxisPid, seriePid);
-    seriePid->setName("Wartość regulatora PID");
-    //ui->chartViewPid->chart()->legend()->hide();
+    // //PID
+    // ui->chartViewPid->chart()->removeAllSeries();
+    // xAxis_->setRange(0,1);
+    // //ui->chartViewPid->chart()->addAxis(xAxisPid, Qt::AlignBottom);
+    // yAxisPid->setRange(0.0, 2.0);
+    // //ui->chartViewPid->chart()->addAxis(yAxisPid, Qt::AlignLeft);
+    // ui->chartViewPid->chart()->addSeries(seriePid);
+    // ui->chartViewPid->chart()->setAxisX(xAxis_, seriePid);
+    // ui->chartViewPid->chart()->setAxisY(yAxisPid, seriePid);
+    // seriePid->setName("Wartość regulatora PID");
+    // //ui->chartViewPid->chart()->legend()->hide();
 
-    //P/I/D jako 3
+    // //P/I/D jako 3
 
-    ui->chartViewPID3->chart()->removeAllSeries();
-    static QValueAxis *xAxis__ = new QValueAxis;
-    xAxis__->setRange(0,1);
-    //ui->chartViewPID3->chart()->addAxis(xAxis__, Qt::AlignBottom);
-    static QValueAxis *yAxis__ = new QValueAxis;
-    yAxis__->setRange(0.0, 2.0);
-    //ui->chartViewPID3->chart()->addAxis(yAxis__, Qt::AlignLeft);
-    ui->chartViewPID3->chart()->addSeries(serieP);
-    ui->chartViewPID3->chart()->setAxisX(xAxis__, serieP);
-    ui->chartViewPID3->chart()->setAxisY(yAxis__, serieP);
-    seriePid->setName("Składowa P");
-    ui->chartViewPID3->chart()->addSeries(serieI);
-    ui->chartViewPID3->chart()->setAxisX(xAxis__, serieI);
-    ui->chartViewPID3->chart()->setAxisY(yAxis__, serieI);
-    seriePid->setName("Składowa I");
-    ui->chartViewPID3->chart()->addSeries(serieD);
-    ui->chartViewPID3->chart()->setAxisX(xAxis__, serieD);
-    ui->chartViewPID3->chart()->setAxisY(yAxis__, serieD);
-    seriePid->setName("Składowa D");
-    //ui->chartViewPID3->chart()->legend()->hide();
+    // ui->chartViewPID3->chart()->removeAllSeries();
+    // xAxis_->setRange(0,1);
+    // //ui->chartViewPID3->chart()->addAxis(xAxis__, Qt::AlignBottom);
+    // yAxis__->setRange(0.0, 2.0);
+    // //ui->chartViewPID3->chart()->addAxis(yAxis__, Qt::AlignLeft);
+    // ui->chartViewPID3->chart()->addSeries(serieP);
+    // ui->chartViewPID3->chart()->setAxisX(xAxis_, serieP);
+    // ui->chartViewPID3->chart()->setAxisY(yAxis__, serieP);
+    // seriePid->setName("Składowa P");
+    // ui->chartViewPID3->chart()->addSeries(serieI);
+    // ui->chartViewPID3->chart()->setAxisX(xAxis_, serieI);
+    // ui->chartViewPID3->chart()->setAxisY(yAxis__, serieI);
+    // seriePid->setName("Składowa I");
+    // ui->chartViewPID3->chart()->addSeries(serieD);
+    // ui->chartViewPID3->chart()->setAxisX(xAxis_, serieD);
+    // ui->chartViewPID3->chart()->setAxisY(yAxis__, serieD);
+    // seriePid->setName("Składowa D");
+    // //ui->chartViewPID3->chart()->legend()->hide();
 
     timer->start();
 }
