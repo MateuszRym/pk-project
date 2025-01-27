@@ -35,30 +35,11 @@ private slots:
     void on_btnResetD_clicked();
     void on_btnResetI_clicked();
     void on_btnStop_clicked();
-
-    void WykresWeWy(double t, double we, double wy);
-    void WykresE(double t, double e);
-    void WykresSterPID(double t, double pid);
-    void WykresPID(double t, double p, double i, double d);
-
     void on_spinBoxInterwal_valueChanged(int arg1);
 
 private:
     Ui::MainWindow *ui;
     QTimer* timer = nullptr;
-    QLineSeries *serieIn = nullptr;
-    QLineSeries *serieOut = nullptr;
-    QLineSeries *serieE = nullptr;
-    QLineSeries *seriePid = nullptr;
-    QLineSeries *serieP = nullptr;
-    QLineSeries *serieI = nullptr;
-    QLineSeries *serieD = nullptr;
-    QValueAxis *xAxis_ = nullptr;
-    QValueAxis *yAxis_ = nullptr;
-    QValueAxis *yAxisE = nullptr;
-    QValueAxis *yAxisPid = nullptr;
-    QValueAxis *yAxis__ = nullptr;
-
     Symulacja UAR;
     std::vector<double> arx_a_view;
     std::vector<double> arx_b_view;

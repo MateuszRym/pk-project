@@ -3,7 +3,7 @@
 #include <stdexcept>
 
 SygGen::SygGen()
-    : m_krok{ 0 }
+    : m_krok{ 1 }
     , m_sygn{ 0.0 }
 {}
 
