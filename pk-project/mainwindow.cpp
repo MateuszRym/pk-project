@@ -11,12 +11,21 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
     , timer{new QTimer(this)}
     , UAR{}
+    , krok{0}
     , arx_a_view{}
     , arx_b_view{}
+    , uar_wy_x{}
+    , uar_wy_y{}
 {
     ui->setupUi(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(advance()));
     on_spinBoxInterwal_valueChanged(ui->spinBoxInterwal->value());
+    ui->graphUAR->addGraph();
+    ui->graphUAR->yAxis->setLabel("WY");
+    ui->graphUAR->xAxis->setLabel("Krok");
+    ui->graphUAR->yAxis->setRange(0.0, 1.0);
+    ui->graphUAR->xAxis->setRange(0.0, 10.0);
+    ui->graphUAR->graph(0)->setAntialiased(true);
 }
 
 MainWindow::~MainWindow()
@@ -37,6 +46,7 @@ void MainWindow::on_btnStart_clicked()
     ui->btnStop->setEnabled(true);
     ui->btnStart->setEnabled(false);
     ui->labelStatus->setText("Włączona");
+    ui->graphUAR->xAxis->setRange(0.0, ui->spinBoxWidokKrokow->value());
     setUpUAR();
 
     timer->start();
@@ -54,7 +64,18 @@ void MainWindow::advance() {
         UAR.liczSygnalSin(ui->doubleSpinBoxSinAmp->value(), ui->spinBoxSinOkr->value());
     }
 
-    std::cerr << UAR.symulujKrok() << '\n';
+    double wy = UAR.symulujKrok();
+    krok++;
+    std::cerr << wy << '\n';
+    uar_wy_y.push_back(wy);
+    uar_wy_x.push_back(krok);
+
+    ui->graphUAR->graph(0)->setData(uar_wy_x, uar_wy_y);
+    // ui->graphUAR->rescaleAxes();
+    if (krok > ui->spinBoxWidokKrokow->value())
+        ui->graphUAR->xAxis->moveRange(1.0);
+    ui->graphUAR->graph(0)->rescaleValueAxis(false, true);
+    ui->graphUAR->replot();
 }
 
 void MainWindow::on_groupBoxKwad_toggled(bool arg1)
@@ -182,5 +203,16 @@ void MainWindow::on_btnStop_clicked()
 void MainWindow::on_spinBoxInterwal_valueChanged(int arg1)
 {
     timer->setInterval(arg1);
+}
+
+
+void MainWindow::on_spinBoxWidokKrokow_valueChanged(int arg1)
+{
+    if (krok <= ui->spinBoxWidokKrokow->value()) {
+        ui->graphUAR->xAxis->setRange(0.0, ui->spinBoxWidokKrokow->value());
+    }
+    else {
+        ui->graphUAR->xAxis->setRange(krok - ui->spinBoxWidokKrokow->value(), krok);
+    }
 }
 

@@ -1,7 +1,5 @@
 QT       += core gui
-QT += charts
-QT += widgets
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++17
 
@@ -15,6 +13,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     pid.cpp \
+    qcustomplot.cpp \
     sprzwr.cpp \
     syggen.cpp \
     sygkwad.cpp \
@@ -31,6 +30,7 @@ HEADERS += \
     compile.h \
     mainwindow.h \
     pid.h \
+    qcustomplot.h \
     sprzwr.h \
     syggen.h \
     sygkwad.h \

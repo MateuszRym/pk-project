@@ -3,8 +3,8 @@
 
 #include "symulacja.h"
 #include <QMainWindow>
-#include <QtCharts>
 #include <QTimer>
+#include "qvector.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -37,12 +37,17 @@ private slots:
     void on_btnStop_clicked();
     void on_spinBoxInterwal_valueChanged(int arg1);
 
+    void on_spinBoxWidokKrokow_valueChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
     QTimer* timer = nullptr;
     Symulacja UAR;
+    int krok;   // <- przeniesc do symulacji ?
     std::vector<double> arx_a_view;
     std::vector<double> arx_b_view;
+    QVector<double> uar_wy_x;       // <- temp; przeniesc do klasy od chartow
+    QVector<double> uar_wy_y;       // <- temp; przeniesc do klasy od chartow
 };
 
 #endif // MAINWINDOW_H
